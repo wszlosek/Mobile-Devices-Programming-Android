@@ -1,13 +1,11 @@
 FROM ubuntu:20.04
-
+ENV TZ=Europe/Warsaw
 
 #update ubuntu
 RUN apt update
 RUN apt upgrade -y
 
-#install curl
 RUN apt install -y zip unzip curl
-#add user
 RUN useradd -ms /bin/bash wojciech
 RUN adduser wojciech sudo
 
