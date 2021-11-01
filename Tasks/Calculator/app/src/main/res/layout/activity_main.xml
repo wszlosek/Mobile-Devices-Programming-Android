@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/label"
+        android:id="@+id/textbox"
         android:layout_width="370dp"
         android:layout_height="130dp"
         android:layout_marginStart="20dp"
@@ -200,7 +200,7 @@
         android:layout_marginEnd="117dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/button_purple"
-        android:onClick="buttonClick"
+        android:onClick="solve"
         android:text="@string/equal"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -277,7 +277,7 @@
         android:layout_marginEnd="210dp"
         android:layout_marginBottom="390dp"
         android:backgroundTint="@color/button_purple"
-        android:onClick="buttonClick"
+        android:onClick="clearTextbox"
         android:text="@string/clearAll"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -292,12 +292,11 @@
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="390dp"
         android:backgroundTint="@color/button_purple"
-        android:onClick="buttonClick"
+        android:onClick="backspace"
         android:text="@string/backspace"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
