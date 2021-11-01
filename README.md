@@ -1,1 +1,1 @@
-# Mobile-Devices-Programming-Android
+# UJ-Android
