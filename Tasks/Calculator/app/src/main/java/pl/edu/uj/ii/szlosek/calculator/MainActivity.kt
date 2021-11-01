@@ -1,47 +1,64 @@
 package pl.edu.uj.ii.szlosek.calculator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.notkamui.keval.Keval
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private var textbox = Textbox()
+    private var textField = TextField()
     private lateinit var assignment: HashMap<View, String>
     private lateinit var currentTextbox: TextView
 
-    private fun initButtons() {
-        clearTextbox()
-        currentTextbox = findViewById<TextView>(R.id.textbox)
+    private fun createButtonsDictionary() {
+        assignment = hashMapOf()
+        var i = 0
+        for (numberButton in textField.numbers) {
+            assignment[numberButton] = i.toString()
+            i += 1
+        }
 
-        textbox.numbers = listOf(
+        assignment.put(buttonAddition, "+")
+        assignment.put(buttonSubtraction, "-")
+        assignment.put(buttonMultiplication, "×")
+        assignment.put(buttonDivision, "÷")
+        assignment.put(buttonSeparator, ".")
+    }
+
+    private fun initButtons() {
+        clearTextField()
+        currentTextbox = findViewById(R.id.textbox)
+
+        textField.numbers = listOf(
             buttonNumber0, buttonNumber1, buttonNumber2,
             buttonNumber3, buttonNumber4, buttonNumber5,
             buttonNumber6, buttonNumber7, buttonNumber8,
-            buttonNumber9
+            buttonNumber9, buttonSeparator
         )
-        textbox.operators = listOf(
+        textField.nonNumbers = listOf(
             buttonAddition, buttonSubtraction,
             buttonMultiplication, buttonDivision
         )
 
-        assignment = hashMapOf()
-        var i = 0
-        for (numberButton in textbox.numbers) {
-            assignment[numberButton] = i.toString()
-            i += 1
-        }
+        createButtonsDictionary()
     }
 
     private fun valuesToButtons() {
-        val t = findViewById<TextView>(R.id.textbox)
-        for (numberButton in textbox.numbers) {
+        for (numberButton in textField.numbers) {
             numberButton.setOnClickListener {
-                if (textbox.text == "0")
-                    textbox.text = ""
-                textbox.text += assignment[numberButton]
-                currentTextbox.text = textbox.text
+                if (textField.text == "0")
+                    textField.text = ""
+                textField.text += assignment[numberButton]
+                currentTextbox.text = textField.text
+            }
+        }
+
+        for (nonNumberButton in textField.nonNumbers) {
+            nonNumberButton.setOnClickListener {
+                textField.text += assignment[nonNumberButton]
+                currentTextbox.text = textField.text
             }
         }
     }
@@ -49,33 +66,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         initButtons()
         valuesToButtons()
     }
 
-    fun buttonClick(view: android.view.View) {
-        //initButtons()
-       // val t = findViewById<TextView>(R.id.textbox)
-       // t.text = textbox.text
-    }
-
     fun backspace(view: android.view.View) {
-        textbox.text = textbox.text.dropLast(1)
-        if (textbox.text.length == 0)
-            clearTextbox()
+        textField.text = textField.text.dropLast(1)
+        if (textField.text.isEmpty())
+            clearTextField()
 
-        currentTextbox.text = textbox.text
+        currentTextbox.text = textField.text
     }
 
-    private fun clearTextbox() {
-        textbox.text = "0"
+    private fun clearTextField() {
+        textField.text = "0"
     }
 
-    fun clearTextbox(view: android.view.View) {
-        clearTextbox()
-        currentTextbox.text = textbox.text
+    fun clearTextField(view: android.view.View) {
+        clearTextField()
+        currentTextbox.text = textField.text
     }
 
-    fun solve(view: android.view.View) {}
+    fun solve(view: android.view.View) {
+        println( currentTextbox.text.toString().replace(" ","")
+            .replace("×", "*").replace("÷", "/"))
+        currentTextbox.text = Keval.eval(
+            currentTextbox.text.toString().replace(" ","")
+                .replace("×", "*").replace("÷", "/")
+        ).toString()
+
+        if (currentTextbox.text.toString()[0] == '-') {
+            currentTextbox.text = "0" +  currentTextbox.text.toString()
+        }
+        textField.text = currentTextbox.text.toString()
+    }
 }
