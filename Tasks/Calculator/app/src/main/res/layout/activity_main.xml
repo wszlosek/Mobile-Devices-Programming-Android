@@ -18,7 +18,7 @@
         android:fontFamily="@font/digital7"
         android:paddingEnd="10dp"
         android:textAlignment="viewEnd"
-        android:textSize="80sp"
+        android:textSize="75sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

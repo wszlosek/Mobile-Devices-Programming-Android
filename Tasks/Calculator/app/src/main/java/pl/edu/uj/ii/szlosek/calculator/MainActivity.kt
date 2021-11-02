@@ -1,16 +1,29 @@
 package pl.edu.uj.ii.szlosek.calculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.notkamui.keval.Keval
+import com.notkamui.keval.KevalInvalidExpressionException
+import com.notkamui.keval.KevalInvalidSymbolException
+import com.notkamui.keval.KevalZeroDivisionException
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var textField = TextField()
     private lateinit var assignment: HashMap<View, String>
     private lateinit var currentTextbox: TextView
+
+    @SuppressLint("SetTextI18n")
+    private fun textSynchronization() {
+        if (textField.klaudia())
+            currentTextbox.text = "Klaudia"
+        else
+            currentTextbox.text = textField.text
+    }
 
     private fun createButtonsDictionary() {
         assignment = hashMapOf()
@@ -51,14 +64,14 @@ class MainActivity : AppCompatActivity() {
                 if (textField.text == "0")
                     textField.text = ""
                 textField.text += assignment[numberButton]
-                currentTextbox.text = textField.text
+                textSynchronization()
             }
         }
 
         for (nonNumberButton in textField.nonNumbers) {
             nonNumberButton.setOnClickListener {
                 textField.text += assignment[nonNumberButton]
-                currentTextbox.text = textField.text
+                textSynchronization()
             }
         }
     }
@@ -70,34 +83,63 @@ class MainActivity : AppCompatActivity() {
         valuesToButtons()
     }
 
-    fun backspace(view: android.view.View) {
+    fun backspace(view: View) {
         textField.text = textField.text.dropLast(1)
         if (textField.text.isEmpty())
             clearTextField()
 
-        currentTextbox.text = textField.text
+        textSynchronization()
     }
 
     private fun clearTextField() {
         textField.text = "0"
     }
 
-    fun clearTextField(view: android.view.View) {
+    fun clearTextField(view: View) {
         clearTextField()
-        currentTextbox.text = textField.text
+        textSynchronization()
     }
 
-    fun solve(view: android.view.View) {
-        println( currentTextbox.text.toString().replace(" ","")
-            .replace("×", "*").replace("÷", "/"))
-        currentTextbox.text = Keval.eval(
-            currentTextbox.text.toString().replace(" ","")
-                .replace("×", "*").replace("÷", "/")
-        ).toString()
+    @SuppressLint("SetTextI18n")
+    fun solve(view: View) {
+        try {
+            textField.text = Keval.eval(
+                currentTextbox.text.toString().replace(" ", "")
+                    .replace("×", "*").replace("÷", "/")
+            ).toString()
 
-        if (currentTextbox.text.toString()[0] == '-') {
-            currentTextbox.text = "0" +  currentTextbox.text.toString()
+            if (textField.text[0] == '-')
+                textField.text = "0" + textField.text
+
+            textSynchronization()
+
+        } catch (e: KevalZeroDivisionException) {
+            currentTextbox.text = "#ERROR"
+            Toast.makeText(
+                this@MainActivity,
+                "You can't divide by zero!",
+                Toast.LENGTH_SHORT
+            ).show()
+            clearTextField()
+
+        } catch (e: KevalInvalidExpressionException) {
+            currentTextbox.text = "#ERROR"
+            Toast.makeText(
+                this@MainActivity,
+                "Expression is invalid",
+                Toast.LENGTH_SHORT
+            ).show()
+            clearTextField()
+
+        } catch (e: KevalInvalidSymbolException) {
+            currentTextbox.text = "#ERROR"
+            Toast.makeText(
+                this@MainActivity,
+                "Expression contains an invalid symbol",
+                Toast.LENGTH_SHORT
+            ).show()
+            clearTextField()
         }
-        textField.text = currentTextbox.text.toString()
+
     }
 }

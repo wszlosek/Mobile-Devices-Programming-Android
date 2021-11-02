@@ -9,7 +9,7 @@ class TextField {
     lateinit var nonNumbers: List<View>
     lateinit var specialCommands: List<View>
 
-    public fun klaudia(): Boolean {
-        return text.toInt() == 158
+    fun klaudia(): Boolean {
+        return text == "158" || text == "158.0"
     }
 }
