@@ -17,10 +17,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var assignment: HashMap<View, String>
     private lateinit var currentTextbox: TextView
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        initButtons()
+        valuesToButtons()
+    }
+
     @SuppressLint("SetTextI18n")
     private fun textSynchronization() {
-        if (textField.klaudia())
-            currentTextbox.text = "Klaudia"
+        if (textField.text[0] == '0' && textField.text.length > 1)
+            currentTextbox.text = textField.text.substring(1, textField.text.length)
         else
             currentTextbox.text = textField.text
     }
@@ -33,17 +40,17 @@ class MainActivity : AppCompatActivity() {
             i += 1
         }
 
-        assignment.put(buttonAddition, "+")
-        assignment.put(buttonSubtraction, "-")
-        assignment.put(buttonMultiplication, "×")
-        assignment.put(buttonDivision, "÷")
-        assignment.put(buttonSeparator, ".")
+        assignment[buttonAddition] = "+"
+        assignment[buttonSubtraction] = "-"
+        assignment[buttonMultiplication] = "×"
+        assignment[buttonDivision] = "÷"
+        assignment[buttonSeparator] = "."
     }
 
     private fun initButtons() {
         clearTextField()
-        currentTextbox = findViewById(R.id.textbox)
 
+        currentTextbox = findViewById(R.id.textbox)
         textField.numbers = listOf(
             buttonNumber0, buttonNumber1, buttonNumber2,
             buttonNumber3, buttonNumber4, buttonNumber5,
@@ -53,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         textField.nonNumbers = listOf(
             buttonAddition, buttonSubtraction,
             buttonMultiplication, buttonDivision
+        )
+        textField.specialCommands = listOf(
+            buttonEqual, buttonBackspace, buttonClearAll
         )
 
         createButtonsDictionary()
@@ -76,13 +86,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initButtons()
-        valuesToButtons()
-    }
-
     fun backspace(view: View) {
         textField.text = textField.text.dropLast(1)
         if (textField.text.isEmpty())
@@ -102,9 +105,14 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun solve(view: View) {
+
+        textField.doubleSubtraction()
+        textField.doubleAddition()
+        textField.plusMinus()
+
         try {
             textField.text = Keval.eval(
-                currentTextbox.text.toString().replace(" ", "")
+                textField.text.replace(" ", "")
                     .replace("×", "*").replace("÷", "/")
             ).toString()
 

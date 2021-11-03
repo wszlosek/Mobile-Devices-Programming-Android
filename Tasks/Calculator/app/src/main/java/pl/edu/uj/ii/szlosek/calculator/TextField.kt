@@ -9,7 +9,22 @@ class TextField {
     lateinit var nonNumbers: List<View>
     lateinit var specialCommands: List<View>
 
-    fun klaudia(): Boolean {
-        return text == "158" || text == "158.0"
+    fun doubleAddition() {
+        while (text.contains("++")) {
+            text = text.replace("++", "+")
+        }
+    }
+
+    fun doubleSubtraction() {
+        while (text.contains("--")) {
+            text = text.replace("--", "+")
+        }
+    }
+
+    fun plusMinus() {
+        while (text.contains("+-") || text.contains("-+")) {
+            text = text.replace("+-", "-")
+            text = text.replace("-+", "-")
+        }
     }
 }
