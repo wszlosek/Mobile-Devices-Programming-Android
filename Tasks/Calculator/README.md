@@ -18,3 +18,7 @@ Kalkulator działa na liczbach całkowitych (w tym ujemnych) oraz ułamkach dzie
 
 
 #### Przykładowe działanie aplikacji
+
+
+https://user-images.githubusercontent.com/53795852/140041192-bd611add-bb95-4a8d-9460-41f46de0f1c3.mp4
+
