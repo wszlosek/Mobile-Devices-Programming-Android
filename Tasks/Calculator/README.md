@@ -10,11 +10,10 @@ Stworzyć aplikację kalkulator, obsługującą podstawowe działania matematycz
 
 #### Wprowadzone możliwości
 
-Kalkulator obsługuje podstawowe działania matematyczne (dodawanie, odejmowanie, mnożenie, dzielenie). 
-Obliczanie wyniku nie ignoruje kolejności wykonywania działań. 
-Ponadto aplikacje zwraca uwagę na to czy wprowadzone działanie jest poprawne (np. ` 2 × × ÷ 3 `).
-
-Kalkulator działa na liczbach całkowitych (w tym ujemnych) oraz ułamkach dziesiętnych.
+- Kalkulator obsługuje podstawowe działania matematyczne (dodawanie, odejmowanie, mnożenie, dzielenie). 
+- Obliczanie wyniku nie ignoruje kolejności wykonywania działań. 
+- Aplikacja zwraca uwagę na to czy wprowadzone działanie jest poprawne (np. ` 2 × × ÷ 3 `, dzielenie przez zero).
+- Kalkulator działa na liczbach całkowitych (w tym ujemnych) oraz ułamkach dziesiętnych.
 
 
 #### Przykładowe działanie aplikacji
