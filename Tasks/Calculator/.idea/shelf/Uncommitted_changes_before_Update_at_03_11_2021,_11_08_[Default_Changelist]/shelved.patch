@@ -1,0 +1,31 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Calculator\n\n\n## Treść zadania\n\nStworzyć aplikację kalkulator, obsługującą podstawowe działania matematyczne.\n\n\n## Rozwiązanie\n\n#### Wprowadzone możliwości\n\nKalkulator obsługuje podstawowe działania matematyczne (dodawanie, odejmowanie, mnożenie, dzielenie). \nObliczanie wyniku nie ignoruje kolejności wykonywania działań. \nPonadto aplikacje zwraca uwagę na to czy wprowadzone działanie jest poprawne (np. ` 2 × × ÷ 3 `).\n\nKalkulator działa na liczbach całkowitych (w tym ujemnych) oraz ułamkach dziesiętnych.\n\n\n#### Przykładowe działanie aplikacji\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision 6223092b87cbf6b1be3919a66ddd38c1de994c7c)
++++ b/README.md	(date 1635934069773)
+@@ -10,11 +10,15 @@
+ 
+ #### Wprowadzone możliwości
+ 
+-Kalkulator obsługuje podstawowe działania matematyczne (dodawanie, odejmowanie, mnożenie, dzielenie). 
+-Obliczanie wyniku nie ignoruje kolejności wykonywania działań. 
+-Ponadto aplikacje zwraca uwagę na to czy wprowadzone działanie jest poprawne (np. ` 2 × × ÷ 3 `).
+-
+-Kalkulator działa na liczbach całkowitych (w tym ujemnych) oraz ułamkach dziesiętnych.
++- Kalkulator obsługuje podstawowe działania matematyczne (dodawanie, odejmowanie, mnożenie, dzielenie). 
++- Obliczanie wyniku nie ignoruje kolejności wykonywania działań. 
++- Aplikacja zwraca uwagę na to czy wprowadzone działanie jest poprawne (np. ` 2 × × ÷ 3 `, dzielenie przez zero).
++- Kalkulator działa na liczbach całkowitych (w tym ujemnych) oraz ułamkach dziesiętnych.
+ 
+ 
+ #### Przykładowe działanie aplikacji
++
++
++https://user-images.githubusercontent.com/53795852/140041192-bd611add-bb95-4a8d-9460-41f46de0f1c3.mp4
++
++
