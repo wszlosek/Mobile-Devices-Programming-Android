@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun initButtons() {
         clearTextField()
 
-        currentTextbox = findViewById(R.id.textbox)
+        currentTextbox = textbox
         textField.numbers = listOf(
             buttonNumber0, buttonNumber1, buttonNumber2,
             buttonNumber3, buttonNumber4, buttonNumber5,
