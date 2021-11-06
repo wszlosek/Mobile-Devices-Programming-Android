@@ -20,3 +20,10 @@ Stworzyć aplikację kalkulator, obsługującą podstawowe działania matematycz
 
 
 https://user-images.githubusercontent.com/53795852/140041192-bd611add-bb95-4a8d-9460-41f46de0f1c3.mp4
+
+
+#### Sklep Play
+
+Aplikacja została testowo zamieszczona w Sklepie Play:
+
+https://play.google.com/store/apps/details?id=pl.edu.uj.ii.szlosek.calculator
