@@ -26,8 +26,15 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun textSynchronization() {
-        if (textField.text[0] == '0' && textField.text.length > 1)
+        if (textField.klaudia())
+            currentTextbox.text = "Klaudia"
+
+        else if (textField.text[0] == '0' && textField.text.length > 1
+            && textField.text[1] != '+' && textField.text[1] != '-'
+            && textField.text[1] != '×' && textField.text[1] != '÷'
+            && textField.text[1] != '.')
             currentTextbox.text = textField.text.substring(1, textField.text.length)
+
         else
             currentTextbox.text = textField.text
     }
