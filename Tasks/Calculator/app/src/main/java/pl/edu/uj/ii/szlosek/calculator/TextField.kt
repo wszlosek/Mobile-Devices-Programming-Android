@@ -30,8 +30,9 @@ class TextField {
 
     // easter egg :)
     fun klaudia(): Boolean {
-        if (text == "158" || text == "158.0")
+        if (text == "158" || text == "158.0") {
             return true
+        }
 
         return false
     }

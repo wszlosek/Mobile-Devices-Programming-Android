@@ -26,8 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun textSynchronization() {
-        if (textField.klaudia())
+        if (textField.klaudia()) {
             currentTextbox.text = "Klaudia"
+        }
 
         else if (textField.text[0] == '0' && textField.text.length > 1
             && textField.text[1] != '+' && textField.text[1] != '-'
@@ -35,8 +36,9 @@ class MainActivity : AppCompatActivity() {
             && textField.text[1] != '.')
             currentTextbox.text = textField.text.substring(1, textField.text.length)
 
-        else
+        else {
             currentTextbox.text = textField.text
+        }
     }
 
     private fun createButtonsDictionary() {
@@ -95,8 +97,9 @@ class MainActivity : AppCompatActivity() {
 
     fun backspace(view: View) {
         textField.text = textField.text.dropLast(1)
-        if (textField.text.isEmpty())
+        if (textField.text.isEmpty()) {
             clearTextField()
+        }
 
         textSynchronization()
     }
@@ -119,12 +122,13 @@ class MainActivity : AppCompatActivity() {
 
         try {
             textField.text = Keval.eval(
-                textField.text.replace(" ", "")
-                    .replace("×", "*").replace("÷", "/")
+                textField.text.replace(" ", "").replace("×", "*")
+                    .replace("÷", "/")
             ).toString()
 
-            if (textField.text[0] == '-')
+            if (textField.text[0] == '-') {
                 textField.text = "0" + textField.text
+            }
 
             textSynchronization()
 
@@ -157,4 +161,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }
