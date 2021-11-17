@@ -4,18 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Login : AppCompatActivity() {
+class About : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_about)
     }
 
-    fun fromLoginToRegister(view: android.view.View) {
-        val intent = Intent(this, Register::class.java)
-        startActivity(intent)
-    }
-
-    fun fromLoginToProducts(view: android.view.View) {
+    fun fromAboutMeToProducts(view: android.view.View) {
         val intent = Intent(this, Products::class.java)
         startActivity(intent)
     }

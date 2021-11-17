@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Shop</string>
+    <string name="logo">app logo</string>
+    <string name="about_me">About me</string>
+    <string name="textAboutMe">Hello there! I\'m Wojtek and I\'m young programmer, who created this mobile application.</string>
+    <string name="login">login</string>
+    <string name="password">password</string>
+    <string name="register">register</string>
+    <string name="username">username</string>
+    <string name="email">email</string>
+    <string name="repeat_password">repeat password</string>
+    <string name="product_name">product name</string>
+    <string name="add_to_card">Add to card</string>
+    <string name="back">back</string>
 </resources>
