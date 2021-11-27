@@ -15,8 +15,10 @@ class Login : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun fromLoginToProducts(view: android.view.View) {
+    fun fromLogToProducts(view: android.view.View) {
         val intent = Intent(this, Products::class.java)
         startActivity(intent)
     }
+
+
 }

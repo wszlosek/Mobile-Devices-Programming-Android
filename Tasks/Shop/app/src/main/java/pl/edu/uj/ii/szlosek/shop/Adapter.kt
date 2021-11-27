@@ -5,11 +5,13 @@ import android.os.Bundle
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.TextView
+import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 
 class Adapter(context: Context): BaseAdapter() {
     private val mContext: Context
@@ -44,7 +46,16 @@ class Adapter(context: Context): BaseAdapter() {
         val nameTextView = rowProducts.findViewById<TextView>(R.id.productName)
         nameTextView.text = productsNames.get(p0)
 
+        val buttons = rowProducts.findViewById<Button>(R.id.buyButton)
+        buttons.setOnClickListener {
+            val intent = Intent(mContext, Cart::class.java).apply {
+                putExtra("nameOfProduct",nameTextView.text)
+            }
+            mContext.startActivity(intent)
+        }
+
         return rowProducts
     }
+
 
 }
