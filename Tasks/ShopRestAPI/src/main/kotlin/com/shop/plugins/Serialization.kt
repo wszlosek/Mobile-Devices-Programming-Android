@@ -21,6 +21,7 @@ fun Application.configureSerialization() {
 fun Application.productSerialization() {
     routing {
         get("/product/{id}") {
+
             val id = call.parameters["id"]
             val product: Product = productStorrage.find { it.id == id!!.toInt() }!!
             call.respond(product)

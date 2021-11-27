@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9593a892-6b99-410f-87f8-517e504852be" name="Changes" comment="Hello, World!">
-      <change afterPath="$PROJECT_DIR$/post.http" afterDir="false" />
+    <list default="true" id="4fd456d3-ddc0-4150-a63a-be5230a23de9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post.http" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/Application.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/plugins/Routing.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/plugins/Routing.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/plugins/Serialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/plugins/Serialization.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,22 +29,25 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTTP Request" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="21UzXfuBT5cgfI1HCKxnhkupzRQ" />
+  <component name="ProjectId" id="21VJ4SDGaV7mqHQyqo9ME2i3AE5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="project.structure.last.edited" value="Project" />
@@ -46,13 +55,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Ktor.ApplicationKt">
-    <configuration name="All in post" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/post.http">
-      <method v="2" />
-    </configuration>
-    <configuration name="post#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/post.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="ApplicationKt" type="KtorApplicationConfigurationType" factoryName="Ktor">
       <module name="ShopRestAPI.main" />
       <option name="alternativeJrePath" value="" />
@@ -68,45 +71,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.post#1" />
-        <item itemvalue="HTTP Request.All in post" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9593a892-6b99-410f-87f8-517e504852be" name="Changes" comment="" />
-      <created>1638010511010</created>
+      <changelist id="4fd456d3-ddc0-4150-a63a-be5230a23de9" name="Changes" comment="" />
+      <created>1638020129427</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1638010511010</updated>
-      <workItem from="1638010519600" duration="5260000" />
+      <updated>1638020129427</updated>
+      <workItem from="1638020134703" duration="3639000" />
+      <workItem from="1638031479041" duration="7408000" />
     </task>
-    <task id="LOCAL-00001" summary="clear code from Shop basic-app">
-      <created>1638010908883</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1638010908883</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add app-release files">
-      <created>1638010969384</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1638010969385</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Hello, World!">
-      <created>1638011388700</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1638011388700</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,12 +98,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="clear code from Shop basic-app" />
-    <MESSAGE value="add app-release files" />
-    <MESSAGE value="add startup Ktor project" />
-    <MESSAGE value="Hello, World!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hello, World!" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
