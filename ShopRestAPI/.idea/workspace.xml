@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fd456d3-ddc0-4150-a63a-be5230a23de9" name="Changes" comment="delete directories &quot;Laboratories&quot; and &quot;Tasks&quot; -&gt; 1 project = 1 directory">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Programming in C# and .NET/Task1-text_game" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +79,7 @@
       <workItem from="1638020134703" duration="3639000" />
       <workItem from="1638031479041" duration="7408000" />
       <workItem from="1638039636503" duration="494000" />
-      <workItem from="1638106634531" duration="1130000" />
+      <workItem from="1638106634531" duration="1254000" />
     </task>
     <task id="LOCAL-00001" summary="connect with SQLite (Exposed framework)">
       <created>1638039774974</created>
@@ -96,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638107126082</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="delete directories &quot;Laboratories&quot; and &quot;Tasks&quot; -&gt; 1 project = 1 directory">
+      <created>1638107798016</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638107798016</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
