@@ -27,15 +27,6 @@ fun main() {
 
     transaction {
         SchemaUtils.create(ProductTable)
-
-        ProductTable.insert {
-            it[id] = 4
-            it[name] = "Toyotka Yaris"
-            it[category] = "Car"
-            it[price] = 5000
-            it[description] = ":)))"
-        }
-
         productStorrage.addAll(ProductTable.select { ProductTable.id eq ProductTable.id }.map { it.toProduct() })
     }
 
