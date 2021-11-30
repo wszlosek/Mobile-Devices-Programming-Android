@@ -1,24 +1,16 @@
 package com.shop
 
-import com.shop.ProductTable.category
-import com.shop.ProductTable.description
-import com.shop.ProductTable.id
-import com.shop.ProductTable.name
-import com.shop.ProductTable.price
+import com.shop.models.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import com.shop.plugins.*
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import org.jetbrains.exposed.dao.id.IntIdTable
+import com.shop.tables.ProductTable
+import com.shop.tables.ShopLocalizationTable
+import com.shop.tables.UserTable
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.sql.Connection
-
-val productStorrage = mutableListOf<Product>()
 
 fun main() {
 
@@ -27,35 +19,20 @@ fun main() {
 
     transaction {
         SchemaUtils.create(ProductTable)
+        SchemaUtils.create(UserTable)
+
         productStorrage.addAll(ProductTable.select { ProductTable.id eq ProductTable.id }.map { it.toProduct() })
+        userStorrage.addAll(UserTable.select { UserTable.id eq UserTable.id }.map { it.toUser() })
+        shopsLocalizations.addAll(ShopLocalizationTable.select { ShopLocalizationTable.id eq ShopLocalizationTable.id }.map { it.toShopLocalization() })
     }
 
     println(productStorrage)
+    println(userStorrage)
+    println(shopsLocalizations)
 
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
         configureRouting()
         configureSerialization()
     }.start(wait = true)
 
-}
-
-fun ResultRow.toProduct() = Product(
-    id = this[id],
-    name = this[name],
-    category = this[category],
-    price = this[price],
-    description = this[description]
-)
-
-data class Product(
-    val id: Int, val name: String, val category: String,
-    val price: Int, val description: String
-)
-
-object ProductTable : Table("products") {
-    val id = integer("id").primaryKey()
-    val name = varchar("name", 50)
-    val category = varchar("category", 50)
-    val price = integer("price")
-    val description = varchar("description", 80)
 }
