@@ -3,12 +3,14 @@ package com.shop.routes
 import com.shop.models.Category
 import com.shop.models.toCategory
 import com.shop.tables.CategoryTable
+import com.shop.tables.ColorTable
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.categorySerialization() {
@@ -53,12 +55,14 @@ private fun Application.putCategory() {
     routing {
         put("/category/{id}") {
             val id = call.parameters["id"]
+            val category = call.receive<Category>()
             transaction {
-                CategoryTable.deleteWhere { CategoryTable.id eq id!!.toInt() }
+                CategoryTable.update({ CategoryTable.id eq id!!.toInt() }) {
+                    with(SqlExpressionBuilder) {
+                        it[name] = category.name
+                    }
+                }
             }
-
-            val rec = call.receive<Category>()
-            addCategoryToDatabase(rec)
         }
     }
 }

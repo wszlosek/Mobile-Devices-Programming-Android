@@ -52,12 +52,17 @@ private fun Application.putUser() {
     routing {
         put("/user/{id}") {
             val id = call.parameters["id"]
+            val user = call.receive<User>()
             transaction {
-                UserTable.deleteWhere { UserTable.id eq id!!.toInt() }
+                UserTable.update({ UserTable.id eq id!!.toInt() }) {
+                    with(SqlExpressionBuilder) {
+                        it[firstName] = user.firstName
+                        it[surname] = user.surname
+                        it[localization] = user.localization
+                        it[phoneNumber] = user.phoneNumber
+                    }
+                }
             }
-
-            val rec = call.receive<User>()
-            addUserToDatabase(rec)
         }
     }
 }
@@ -86,6 +91,7 @@ private fun addUserToDatabase(user: User) {
             it[firstName] = user.firstName
             it[surname] = user.surname
             it[localization] = user.localization
+            it[phoneNumber] = user.phoneNumber
         }
     }
 }

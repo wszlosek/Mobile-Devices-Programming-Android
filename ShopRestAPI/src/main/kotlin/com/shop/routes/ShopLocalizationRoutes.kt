@@ -7,7 +7,9 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import com.shop.tables.ShopLocalizationTable
+import com.shop.tables.UserTable
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.shopLocalizationSerialization() {
@@ -52,12 +54,17 @@ private fun Application.putShopLocalization() {
     routing {
         put("/shop/{id}") {
             val id = call.parameters["id"]
+            val shop = call.receive<ShopLocalization>()
             transaction {
-                ShopLocalizationTable.deleteWhere { ShopLocalizationTable.id eq id!!.toInt() }
+                ShopLocalizationTable.update({ ShopLocalizationTable.id eq id!!.toInt() }) {
+                    with(SqlExpressionBuilder) {
+                        it[name] = shop.name
+                        it[street] = shop.street
+                        it[city] = shop.city
+                        it[country] = shop.country
+                    }
+                }
             }
-
-            val rec = call.receive<ShopLocalization>()
-            addLocalizationToDatabase(rec)
         }
     }
 }
@@ -84,6 +91,7 @@ private fun addLocalizationToDatabase(shop: ShopLocalization) {
     transaction {
         ShopLocalizationTable.insert {
             it[name] = shop.name
+            it[street] = shop.street
             it[city] = shop.city
             it[country] = shop.country
         }

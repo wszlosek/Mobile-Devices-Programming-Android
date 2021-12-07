@@ -1,6 +1,5 @@
 package com.shop.tables
 
-import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.Table
 
 object UserTable : Table("users") {
@@ -9,4 +8,5 @@ object UserTable : Table("users") {
     val firstName = varchar("firstName", 50)
     val surname = varchar("surname", 50)
     val localization = varchar("localization", 50)
+    val phoneNumber = varchar("phoneNumber", 50)
 }

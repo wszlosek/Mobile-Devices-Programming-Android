@@ -52,12 +52,14 @@ private fun Application.putColor() {
     routing {
         put("/color/{id}") {
             val id = call.parameters["id"]
+            val color = call.receive<Color>()
             transaction {
-                ColorTable.deleteWhere { ColorTable.id eq id!!.toInt() }
+                ColorTable.update({ ColorTable.id eq id!!.toInt() }) {
+                    with(SqlExpressionBuilder) {
+                        it[ColorTable.name] = color.name
+                    }
+                }
             }
-
-            val rec = call.receive<Color>()
-            addColorToDatabase(rec)
         }
     }
 }

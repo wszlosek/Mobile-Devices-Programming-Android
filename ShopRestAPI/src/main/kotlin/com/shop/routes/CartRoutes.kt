@@ -52,12 +52,17 @@ private fun Application.putCart() {
     routing {
         put("/cart/{id}") {
             val id = call.parameters["id"]
+            val cart = call.receive<Cart>()
             transaction {
-                CartTable.deleteWhere { CartTable.id eq id!!.toInt() }
+                CartTable.update({ CartTable.id eq id!!.toInt() }) {
+                    with(SqlExpressionBuilder) {
+                        it[CartTable.id] = cart.id
+                        it[userId] = cart.userId
+                        it[productId] = cart.productId
+                        it[amount] = cart.amount
+                    }
+                }
             }
-
-            val rec = call.receive<Cart>()
-            addCartToDatabase(rec)
         }
     }
 }
@@ -83,7 +88,10 @@ private fun Application.deleteCart() {
 private fun addCartToDatabase(cart: Cart) {
     transaction {
         CartTable.insert {
+            it[id] = cart.id
             it[userId] = cart.userId
+            it[productId] = cart.productId
+            it[amount] = cart.amount
         }
     }
 }

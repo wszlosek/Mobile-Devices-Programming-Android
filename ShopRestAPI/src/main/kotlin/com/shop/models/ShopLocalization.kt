@@ -4,15 +4,16 @@ import com.shop.tables.ShopLocalizationTable
 import org.jetbrains.exposed.sql.ResultRow
 
 data class ShopLocalization(
-    val id: Int, val name: String,
+    val id: Int, val name: String, val street: String,
     val city: String, val country: String
 ) {
-    constructor() : this(0, "", "", "")
+    constructor() : this(0, "", "", "", "")
 }
 
 fun ResultRow.toShopLocalization() = ShopLocalization(
     id = this[ShopLocalizationTable.id],
     name = this[ShopLocalizationTable.name],
+    street = this[ShopLocalizationTable.street],
     city = this[ShopLocalizationTable.city],
     country = this[ShopLocalizationTable.country]
 )
