@@ -31,7 +31,7 @@ private fun Application.getShopLocalization() {
             val id: Int = call.parameters["id"]!!.toInt()
             var localization = ShopLocalization()
             transaction {
-                localization = (ShopLocalizationTable.select { ShopLocalizationTable.id eq id }.map { it.toShopLocalization() })[0]
+                localization = ShopLocalizationTable.select { ShopLocalizationTable.id eq id }.map { it.toShopLocalization() }.first()
             }
             call.respond(localization)
         }
@@ -83,7 +83,6 @@ private fun Application.deleteShopLocalization() {
 private fun addLocalizationToDatabase(shop: ShopLocalization) {
     transaction {
         ShopLocalizationTable.insert {
-            it[id] = shop.id
             it[name] = shop.name
             it[city] = shop.city
             it[country] = shop.country

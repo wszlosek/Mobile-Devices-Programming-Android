@@ -8,11 +8,6 @@ import io.ktor.routing.*
 import com.shop.models.Product
 import com.shop.models.toProduct
 import com.shop.tables.ProductTable
-import com.shop.tables.ProductTable.categoryId
-import com.shop.tables.ProductTable.colorId
-import com.shop.tables.ProductTable.description
-import com.shop.tables.ProductTable.name
-import com.shop.tables.ProductTable.price
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -37,7 +32,7 @@ private fun Application.getProduct() {
             val id: Int = call.parameters["id"]!!.toInt()
             var product = Product()
             transaction {
-                product = (ProductTable.select { ProductTable.id eq id }.map { it.toProduct() })[0]
+                product = ProductTable.select { ProductTable.id eq id }.map { it.toProduct() }.first()
             }
             call.respond(product)
         }
@@ -88,7 +83,6 @@ private fun Application.deleteProduct() {
 private fun addProductToDatabase(product: Product) {
     transaction {
         ProductTable.insert {
-            it[id] = product.id
             it[name] = product.name
             it[categoryId] = product.categoryId
             it[colorId] = product.colorId

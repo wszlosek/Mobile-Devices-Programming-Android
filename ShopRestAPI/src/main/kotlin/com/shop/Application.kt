@@ -1,13 +1,9 @@
 package com.shop
 
-import com.shop.models.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import com.shop.plugins.*
-import com.shop.tables.ColorTable
-import com.shop.tables.ProductTable
-import com.shop.tables.ShopLocalizationTable
-import com.shop.tables.UserTable
+import com.shop.tables.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -24,6 +20,8 @@ fun main() {
         SchemaUtils.create(UserTable)
         SchemaUtils.create(ShopLocalizationTable)
         SchemaUtils.create(ColorTable)
+        SchemaUtils.create(CategoryTable)
+        SchemaUtils.create(CartTable)
 
       //  users.addAll(UserTable.select { UserTable.id eq UserTable.id }.map { it.toUser() })
     }

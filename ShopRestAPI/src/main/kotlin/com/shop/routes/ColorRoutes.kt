@@ -31,7 +31,7 @@ private fun Application.getColor() {
             val id: Int = call.parameters["id"]!!.toInt()
             var color = Color()
             transaction {
-                color = (ColorTable.select { ColorTable.id eq id }.map { it.toColor() })[0]
+                color = ColorTable.select { ColorTable.id eq id }.map { it.toColor() }.first()
             }
             call.respond(color)
         }
@@ -83,7 +83,6 @@ private fun Application.deleteColor() {
 private fun addColorToDatabase(color: Color) {
     transaction {
         ColorTable.insert {
-            it[id] = color.id
             it[name] = color.name
         }
     }

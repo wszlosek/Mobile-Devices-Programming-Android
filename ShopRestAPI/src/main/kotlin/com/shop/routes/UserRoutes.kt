@@ -18,7 +18,6 @@ fun Application.userSerialization() {
 }
 
 private fun Application.getUser() {
-
     routing {
         get("/user") {
             var users = mutableListOf<User>()
@@ -32,7 +31,7 @@ private fun Application.getUser() {
             val id: Int = call.parameters["id"]!!.toInt()
             var user = User()
             transaction {
-                user = (UserTable.select { UserTable.id eq id }.map { it.toUser() })[0]
+                user = UserTable.select { UserTable.id eq id }.map { it.toUser() }.first()
             }
             call.respond(user)
         }
@@ -40,7 +39,6 @@ private fun Application.getUser() {
 }
 
 private fun Application.postUser() {
-
     routing {
         post("/user") {
             val user = call.receive<User>()
@@ -51,7 +49,6 @@ private fun Application.postUser() {
 }
 
 private fun Application.putUser() {
-
     routing {
         put("/user/{id}") {
             val id = call.parameters["id"]
@@ -66,7 +63,6 @@ private fun Application.putUser() {
 }
 
 private fun Application.deleteUser() {
-
     routing {
         delete("/user") {
             transaction {
@@ -87,7 +83,6 @@ private fun Application.deleteUser() {
 private fun addUserToDatabase(user: User) {
     transaction {
         UserTable.insert {
-            it[id] = user.id
             it[firstName] = user.firstName
             it[surname] = user.surname
             it[localization] = user.localization

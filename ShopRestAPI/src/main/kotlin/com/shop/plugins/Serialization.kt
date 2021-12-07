@@ -1,12 +1,9 @@
 package com.shop.plugins
 
-import com.shop.routes.colorSerialization
+import com.shop.routes.*
 import io.ktor.gson.*
 import io.ktor.features.*
 import io.ktor.application.*
-import com.shop.routes.productSerialization
-import com.shop.routes.shopLocalizationSerialization
-import com.shop.routes.userSerialization
 
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
@@ -17,4 +14,6 @@ fun Application.configureSerialization() {
     userSerialization()
     shopLocalizationSerialization()
     colorSerialization()
+    cartSerialization()
+    categorySerialization()
 }
