@@ -1,5 +1,6 @@
 package com.shop.plugins
 
+import com.shop.routes.colorSerialization
 import io.ktor.gson.*
 import io.ktor.features.*
 import io.ktor.application.*
@@ -15,4 +16,5 @@ fun Application.configureSerialization() {
     productSerialization()
     userSerialization()
     shopLocalizationSerialization()
+    colorSerialization()
 }

@@ -6,7 +6,8 @@ object ProductTable : Table("products") {
     val id = integer("id")
     override val primaryKey = PrimaryKey(id)
     val name = varchar("name", 50)
-    val category = varchar("category", 50)
+    val categoryId = integer("category")
+    val colorId = integer("color").references(ColorTable.id)
     val price = integer("price")
     val description = varchar("description", 80)
 }

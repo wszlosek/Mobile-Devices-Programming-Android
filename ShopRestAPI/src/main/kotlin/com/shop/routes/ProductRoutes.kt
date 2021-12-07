@@ -6,11 +6,14 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import com.shop.models.Product
-import com.shop.models.productStorrage
+import com.shop.models.toProduct
 import com.shop.tables.ProductTable
-import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.deleteWhere
-import org.jetbrains.exposed.sql.insert
+import com.shop.tables.ProductTable.categoryId
+import com.shop.tables.ProductTable.colorId
+import com.shop.tables.ProductTable.description
+import com.shop.tables.ProductTable.name
+import com.shop.tables.ProductTable.price
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.productSerialization() {
@@ -23,12 +26,19 @@ fun Application.productSerialization() {
 private fun Application.getProduct() {
     routing {
         get("/product") {
-            call.respond(productStorrage)
+            var products = mutableListOf<Product>()
+            transaction {
+                products = ProductTable.selectAll().map { it.toProduct() }.toMutableList()
+            }
+            call.respond(products)
         }
 
         get("/product/{id}") {
-            val id = call.parameters["id"]
-            val product: Product = productStorrage.find { it.id == id!!.toInt() }!!
+            val id: Int = call.parameters["id"]!!.toInt()
+            var product = Product()
+            transaction {
+                product = (ProductTable.select { ProductTable.id eq id }.map { it.toProduct() })[0]
+            }
             call.respond(product)
         }
     }
@@ -38,11 +48,8 @@ private fun Application.postProduct() {
     routing {
         post("/product") {
             val product = call.receive<Product>()
-            productStorrage.add(product)
             addProductToDatabase(product)
-
             call.respondText("Product stored correctly", status = HttpStatusCode.Created)
-            println(productStorrage)
         }
     }
 }
@@ -51,15 +58,10 @@ private fun Application.putProduct() {
     routing {
         put("/product/{id}") {
             val id = call.parameters["id"]
-            val product: Product = productStorrage.find { it.id == id!!.toInt() }!!
-
-            productStorrage.remove(product)
             transaction {
                 ProductTable.deleteWhere { ProductTable.id eq id!!.toInt() }
             }
-
             val rec = call.receive<Product>()
-            productStorrage.add(rec)
             addProductToDatabase(rec)
         }
     }
@@ -68,7 +70,6 @@ private fun Application.putProduct() {
 private fun Application.deleteProduct() {
     routing {
         delete("/product") {
-            productStorrage.clear()
             transaction {
                 SchemaUtils.drop(ProductTable)
                 SchemaUtils.create(ProductTable)
@@ -77,9 +78,6 @@ private fun Application.deleteProduct() {
 
         delete("/product/{id}") {
             val id = call.parameters["id"]
-            val product: Product = productStorrage.find { it.id == id!!.toInt() }!!
-
-            productStorrage.remove(product)
             transaction {
                 ProductTable.deleteWhere { ProductTable.id eq id!!.toInt() }
             }
@@ -92,7 +90,8 @@ private fun addProductToDatabase(product: Product) {
         ProductTable.insert {
             it[id] = product.id
             it[name] = product.name
-            it[category] = product.category
+            it[categoryId] = product.categoryId
+            it[colorId] = product.colorId
             it[price] = product.price
             it[description] = product.description
         }

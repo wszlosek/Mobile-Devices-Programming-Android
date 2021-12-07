@@ -4,6 +4,7 @@ import com.shop.models.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import com.shop.plugins.*
+import com.shop.tables.ColorTable
 import com.shop.tables.ProductTable
 import com.shop.tables.ShopLocalizationTable
 import com.shop.tables.UserTable
@@ -18,17 +19,14 @@ fun main() {
     TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
 
     transaction {
+
         SchemaUtils.create(ProductTable)
         SchemaUtils.create(UserTable)
+        SchemaUtils.create(ShopLocalizationTable)
+        SchemaUtils.create(ColorTable)
 
-        productStorrage.addAll(ProductTable.select { ProductTable.id eq ProductTable.id }.map { it.toProduct() })
-        userStorrage.addAll(UserTable.select { UserTable.id eq UserTable.id }.map { it.toUser() })
-        shopsLocalizations.addAll(ShopLocalizationTable.select { ShopLocalizationTable.id eq ShopLocalizationTable.id }.map { it.toShopLocalization() })
+      //  users.addAll(UserTable.select { UserTable.id eq UserTable.id }.map { it.toUser() })
     }
-
-    println(productStorrage)
-    println(userStorrage)
-    println(shopsLocalizations)
 
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
         configureRouting()
