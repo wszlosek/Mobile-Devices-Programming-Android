@@ -85,6 +85,7 @@ private fun addProductToDatabase(product: Product) {
         ProductTable.insert {
             it[name] = product.name
             it[categoryId] = product.categoryId
+            it[size] = product.size
             it[colorId] = product.colorId
             it[price] = product.price
             it[description] = product.description
