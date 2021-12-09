@@ -15,15 +15,12 @@ fun main() {
     TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
 
     transaction {
-
         SchemaUtils.create(ProductTable)
         SchemaUtils.create(UserTable)
         SchemaUtils.create(ShopLocalizationTable)
         SchemaUtils.create(ColorTable)
         SchemaUtils.create(CategoryTable)
         SchemaUtils.create(CartTable)
-
-      //  users.addAll(UserTable.select { UserTable.id eq UserTable.id }.map { it.toUser() })
     }
 
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {

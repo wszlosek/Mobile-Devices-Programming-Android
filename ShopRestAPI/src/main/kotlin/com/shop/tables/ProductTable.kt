@@ -10,5 +10,5 @@ object ProductTable : Table("products") {
     val size = varchar("size", 50)
     val colorId = integer("color").references(ColorTable.id)
     val price = float("price")
-    val description = varchar("description", 80)
+    val description = varchar("description", 100)
 }
