@@ -4,13 +4,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd456d3-ddc0-4150-a63a-be5230a23de9" name="Changes" comment="change put method for models">
+    <list default="true" id="4fd456d3-ddc0-4150-a63a-be5230a23de9" name="Changes" comment="finished task with sample data in DB">
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/builds/Products.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/builds/Service.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/Cart.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/Category.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/Color.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/Product.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/ShopLocalization.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/services/ProductService.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Calculator/app/release/app-release.aab" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Calculator/app/release/app-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_cart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a9eadb78-b82e-411b-be05-f64cb3bbd10f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a9eadb78-b82e-411b-be05-f64cb3bbd10f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/tables/ProductTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/tables/ProductTable.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/tables/UserTable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/tables/UserTable.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopdb.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/shopdb.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Programming in C# and .NET/Task1-text_game" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +144,9 @@
       <workItem from="1638818910513" duration="13588000" />
       <workItem from="1638898177033" duration="17639000" />
       <workItem from="1638976495685" duration="237000" />
-      <workItem from="1639044507850" duration="380000" />
+      <workItem from="1639044507850" duration="600000" />
+      <workItem from="1640030161274" duration="4499000" />
+      <workItem from="1640114573663" duration="4460000" />
     </task>
     <task id="LOCAL-00001" summary="connect with SQLite (Exposed framework)">
       <created>1638039774974</created>
@@ -162,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638920019044</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="finished task with sample data in DB">
+      <created>1639045049795</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1639045049795</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +245,7 @@
     <MESSAGE value="CRUD &lt;=&gt; new models: Category, Cart" />
     <MESSAGE value="add &quot;size&quot; to Product model" />
     <MESSAGE value="change put method for models" />
-    <option name="LAST_COMMIT_MESSAGE" value="change put method for models" />
+    <MESSAGE value="finished task with sample data in DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished task with sample data in DB" />
   </component>
 </project>
