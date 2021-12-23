@@ -40,12 +40,12 @@ class Login : AppCompatActivity() {
 
     private fun buildService() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://49a9-2a02-a31a-e045-8500-151a-311c-84cd-8cc5.ngrok.io/")
+            .baseUrl("https://89a9-109-196-247-252.ngrok.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient.Builder().build())
             .build()
 
-        service = retrofit.create(ProductService::class.java)
+        productService = retrofit.create(ProductService::class.java)
     }
 
 }
