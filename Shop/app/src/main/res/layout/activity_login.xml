@@ -21,66 +21,56 @@
         app:layout_constraintVertical_bias="1.0"
         android:contentDescription="@string/logo"/>
 
-    <EditText
+    <fragment
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        android:name="pl.edu.uj.ii.szlosek.shop.fragments.LoginEditTextFragment" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
+    <fragment
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="-80dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        android:name="pl.edu.uj.ii.szlosek.shop.fragments.PasswordEditTextFragment" />
 
-    <Button
+    <fragment
         android:id="@+id/buttonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
         android:layout_marginEnd="161dp"
         android:layout_marginBottom="-280dp"
-        android:text="@string/login"
-        android:onClick="fromLogToProducts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:name="pl.edu.uj.ii.szlosek.shop.fragments.ButtonLoginFragment" />
 
-    <Button
-        android:id="@+id/buttonRegisterInLogin"
+    <fragment
+        android:id="@+id/buttonRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginEnd="152dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginEnd="161dp"
         android:layout_marginBottom="-420dp"
-        android:text="@string/register"
-        android:onClick="fromLoginToRegister"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:name="pl.edu.uj.ii.szlosek.shop.fragments.ButtonRegisterFragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

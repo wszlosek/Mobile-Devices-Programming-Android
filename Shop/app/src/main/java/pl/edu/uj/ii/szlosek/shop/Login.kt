@@ -19,13 +19,14 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        buildService()
 
+     /*   buildService()
+     431098
         val product = Product(6, "Bluza bez kaptura", 1, "M", 13, 29.99F, "Męska bluza z kapturem.")
        // addProduct(product)
         getProducts()
         getProduct(2)
-        deleteProduct(6)
+        deleteProduct(6) */
     }
 
     fun fromLoginToRegister(view: android.view.View) {

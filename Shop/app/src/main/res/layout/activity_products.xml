@@ -18,13 +18,11 @@
         android:layout_height="380dp" >
     </ListView>
 
-    <Button
+    <fragment
         android:id="@+id/buttonToAboutMe"
         android:layout_width="115dp"
         android:layout_height="50dp"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:text="@string/about_me"
-        android:onClick="fromProductsToAboutMe"/>
-
+        android:name="pl.edu.uj.ii.szlosek.shop.fragments.ButtonAboutMeFragment" />
 
 </LinearLayout>
