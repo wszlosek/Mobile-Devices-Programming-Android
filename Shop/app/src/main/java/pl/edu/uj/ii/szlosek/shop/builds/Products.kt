@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/*
 fun getProducts() {
     val call: Call<List<Product>> = productService.getProducts()
     call.enqueue(object : Callback<List<Product>> {
@@ -20,11 +21,12 @@ fun getProducts() {
     })
 }
 
-fun getProduct(id: Int) {
+fun getProduct(id: Int) : Product {
     val call: Call<Product> = productService.getProduct(id)
+    var product = Product()
     call.enqueue(object : Callback<Product> {
         override fun onResponse(call: Call<Product>, response: Response<Product>) {
-            val product = response.body()
+            product = response.body()!!
             Log.d("Product", product.toString())
         }
 
@@ -32,6 +34,8 @@ fun getProduct(id: Int) {
             Log.d("Read", "error")
         }
     })
+
+    return product
 }
 
 fun addProduct(productData: Product) {
@@ -69,4 +73,25 @@ fun deleteProduct(id: Int) {
             Log.d("Delete", "error")
         }
     })
+}
+ */
+
+suspend fun getProducts(): List<Product> {
+    return productService.getProducts()
+}
+
+suspend fun getProduct(id: Int): Product {
+    return productService.getProduct(id)
+}
+
+suspend fun createProduct(product: Product) {
+    return productService.createProduct(product)
+}
+
+suspend fun updateProduct(id: Int, product: Product) {
+    return productService.updateProduct(id, product)
+}
+
+suspend fun deleteProduct(id: Int) {
+    return productService.deleteProduct(id)
 }

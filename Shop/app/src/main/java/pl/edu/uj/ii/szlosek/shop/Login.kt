@@ -13,6 +13,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Callback
+import io.realm.Realm
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
+import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealmFunc
+import pl.edu.uj.ii.szlosek.shop.services.UserService
 
 class Login : AppCompatActivity() {
 
@@ -20,13 +27,27 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-     /*   buildService()
-     431098
-        val product = Product(6, "Bluza bez kaptura", 1, "M", 13, 29.99F, "Męska bluza z kapturem.")
+        RetrofitCreator().buildAllServices()
+
+      //  val product = Product(6, "Bluza bez kaptura", 1, "M", 13, 29.99F, "Męska bluza z kapturem.")
        // addProduct(product)
-        getProducts()
-        getProduct(2)
-        deleteProduct(6) */
+      //  getProducts()
+     //   getProduct(2)
+     //   deleteProduct(6)
+     //   println("XDDDD")
+     //   var x = getProduct(2)
+     //   println(x.description + " haha")
+
+        runBlocking {
+            withContext(Dispatchers.IO) {
+                var x = getCarts()
+                println(x)
+            }
+        }
+
+        /*
+        Realm.init(this)
+        RealmConfig.providesRealmConfig() */
     }
 
     fun fromLoginToRegister(view: android.view.View) {
@@ -38,15 +59,4 @@ class Login : AppCompatActivity() {
         val intent = Intent(this, Products::class.java)
         startActivity(intent)
     }
-
-    private fun buildService() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://89a9-109-196-247-252.ngrok.io/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(OkHttpClient.Builder().build())
-            .build()
-
-        productService = retrofit.create(ProductService::class.java)
-    }
-
 }

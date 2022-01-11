@@ -29,9 +29,10 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         service = retrofit.create(ProductService::class.java)
-        print(service.getProducts())
+     //   print(service.getProducts())
     }
 
+    /*
     private fun getProductsSync() {
         val call : Call<List<Product>> = service.getProducts()
         val response : Response<List<Product>> = call.execute()
@@ -50,5 +51,5 @@ class MainActivity : AppCompatActivity() {
         }
         print(call)
         print(response)
-    }
+    } */
 }

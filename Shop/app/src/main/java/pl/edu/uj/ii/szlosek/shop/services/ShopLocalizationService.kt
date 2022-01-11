@@ -6,17 +6,17 @@ import retrofit2.http.*
 
 interface ShopLocalizationService {
     @GET("shop")
-    fun getShops() : Call<List<ShopLocalization>>
+    suspend fun getShops() : List<ShopLocalization>
 
     @GET("shop/{id}")
-    fun getShop(@Path("id") id: Int) : Call<ShopLocalization>
+    suspend fun getShop(@Path("id") id: Int) : ShopLocalization
 
     @POST("shop")
-    fun createShop(@Body shop: ShopLocalization) : Call<ShopLocalization>
+    suspend fun createShop(@Body shop: ShopLocalization)
 
     @PUT("shop/{id}")
-    fun updateShop(@Path("id") id: Int, @Body shop: ShopLocalization) : Call<ShopLocalization>
+    suspend fun updateShop(@Path("id") id: Int, @Body shop: ShopLocalization)
 
     @DELETE("shop/{id}")
-    fun deleteShop(@Path("id") id: Int) : Call<ShopLocalization>
+    suspend fun deleteShop(@Path("id") id: Int)
 }

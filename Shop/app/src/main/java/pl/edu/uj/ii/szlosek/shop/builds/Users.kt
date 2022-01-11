@@ -6,7 +6,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-fun getUsers() {
+/*
+fun getUsers(): List<User> {
     val call: Call<List<User>> = userService.getUsers()
     call.enqueue(object : Callback<List<User>> {
         override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
@@ -69,4 +70,25 @@ fun deleteUser(id: Int) {
             Log.d("Delete", "error")
         }
     })
+} */
+
+
+suspend fun getUsers(): List<User> {
+    return userService.getUsers()
+}
+
+suspend fun getUser(id: Int): User {
+    return userService.getUser(id)
+}
+
+suspend fun createUser(user: User) {
+    return userService.createUser(user)
+}
+
+suspend fun updateUser(id: Int, user: User) {
+    return userService.updateUser(id, user)
+}
+
+suspend fun deleteUser(id: Int) {
+    return userService.deleteUser(id)
 }

@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+/*
 fun getCategories() {
     val call: Call<List<Category>> = categoryService.getCategories()
     call.enqueue(object : Callback<List<Category>> {
@@ -70,4 +70,26 @@ fun deleteCategory(id: Int) {
             Log.d("Delete", "error")
         }
     })
+}
+
+ */
+
+suspend fun getCategories(): List<Category> {
+    return categoryService.getCategories()
+}
+
+suspend fun getCategory(id: Int): Category {
+    return categoryService.getCategory(id)
+}
+
+suspend fun createCategory(category: Category) {
+    return categoryService.createCategory(category)
+}
+
+suspend fun updateCategory(id: Int, category: Category) {
+    return categoryService.updateCategory(id, category)
+}
+
+suspend fun deleteCategory(id: Int) {
+    return categoryService.deleteCategory(id)
 }

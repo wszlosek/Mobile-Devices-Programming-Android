@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/*
 fun getColors() {
     val call: Call<List<Color>> = colorService.getColors()
     call.enqueue(object : Callback<List<Color>> {
@@ -69,4 +70,26 @@ fun deleteColor(id: Int) {
             Log.d("Delete", "error")
         }
     })
+}
+
+ */
+
+suspend fun getColors(): List<Color> {
+    return colorService.getColors()
+}
+
+suspend fun getColor(id: Int): Color {
+    return colorService.getColor(id)
+}
+
+suspend fun createColor(color: Color) {
+    return colorService.createColor(color)
+}
+
+suspend fun updateColor(id: Int, color: Color) {
+    return colorService.updateColor(id, color)
+}
+
+suspend fun deleteColor(id: Int) {
+    return colorService.deleteColor(id)
 }

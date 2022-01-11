@@ -2,10 +2,12 @@ package pl.edu.uj.ii.szlosek.shop.builds
 
 import android.util.Log
 import pl.edu.uj.ii.szlosek.shop.models.ShopLocalization
+import pl.edu.uj.ii.szlosek.shop.models.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/*
 fun getShops() {
     val call: Call<List<ShopLocalization>> = shopLocalizationService.getShops()
     call.enqueue(object : Callback<List<ShopLocalization>> {
@@ -69,4 +71,26 @@ fun deleteShopLocalization(id: Int) {
             Log.d("Delete", "error")
         }
     })
+}
+
+*/
+
+suspend fun getShops(): List<ShopLocalization> {
+    return shopLocalizationService.getShops()
+}
+
+suspend fun getShop(id: Int): ShopLocalization {
+    return shopLocalizationService.getShop(id)
+}
+
+suspend fun createShop(shop: ShopLocalization) {
+    return shopLocalizationService.createShop(shop)
+}
+
+suspend fun updateShop(id: Int, shop: ShopLocalization) {
+    return shopLocalizationService.updateShop(id, shop)
+}
+
+suspend fun deleteShop(id: Int) {
+    return shopLocalizationService.deleteShop(id)
 }

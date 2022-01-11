@@ -6,17 +6,17 @@ import retrofit2.http.*
 
 interface CategoryService {
     @GET("category")
-    fun getCategories() : Call<List<Category>>
+    suspend fun getCategories() : List<Category>
 
     @GET("category/{id}")
-    fun getCategory(@Path("id") id: Int) : Call<Category>
+    suspend fun getCategory(@Path("id") id: Int) : Category
 
     @POST("category")
-    fun createCategory(@Body category: Category) : Call<Category>
+    suspend fun createCategory(@Body category: Category)
 
     @PUT("category/{id}")
-    fun updateCategory(@Path("id") id: Int, @Body cart: Category) : Call<Category>
+    suspend fun updateCategory(@Path("id") id: Int, @Body cart: Category)
 
     @DELETE("category/{id}")
-    fun deleteCategory(@Path("id") id: Int) : Call<Category>
+    suspend fun deleteCategory(@Path("id") id: Int)
 }
