@@ -1,14 +1,10 @@
 package pl.edu.uj.ii.szlosek.shop.realmDB.models.User
 
 import io.realm.Realm
-import io.realm.RealmConfiguration
 import io.realm.RealmModel
-import io.realm.kotlin.executeTransactionAwait
 import pl.edu.uj.ii.szlosek.shop.builds.getUsers
-import pl.edu.uj.ii.szlosek.shop.models.User
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
-import pl.edu.uj.ii.szlosek.shop.services.UserService
 
 class UserRealmFunc {
 

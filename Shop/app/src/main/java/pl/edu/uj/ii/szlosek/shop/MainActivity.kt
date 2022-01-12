@@ -2,17 +2,9 @@ package pl.edu.uj.ii.szlosek.shop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import okhttp3.OkHttpClient
-import pl.edu.uj.ii.szlosek.shop.models.Product
-import pl.edu.uj.ii.szlosek.shop.services.ProductService
-import retrofit2.Retrofit
-import retrofit2.Response
-import retrofit2.Call
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    lateinit var service: ProductService
+   // lateinit var service: ProductService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +12,7 @@ class MainActivity : AppCompatActivity() {
       //  buildService()
       //  getProductsSync()
     }
-
+/*
     private fun buildService() {
         val retrofit = Retrofit.Builder()
             .baseUrl("http://7f63-2a02-a31a-e045-8500-5047-752-51f0-3abe.ngrok.io/")
@@ -32,7 +24,7 @@ class MainActivity : AppCompatActivity() {
      //   print(service.getProducts())
     }
 
-    /*
+
     private fun getProductsSync() {
         val call : Call<List<Product>> = service.getProducts()
         val response : Response<List<Product>> = call.execute()

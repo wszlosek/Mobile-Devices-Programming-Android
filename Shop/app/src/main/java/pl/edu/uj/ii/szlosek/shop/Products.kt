@@ -3,10 +3,7 @@ package pl.edu.uj.ii.szlosek.shop
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.AdapterView
 import android.widget.ListView
-import android.widget.Toast
 
 class Products : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

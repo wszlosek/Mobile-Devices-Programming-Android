@@ -5,7 +5,6 @@ import io.realm.RealmModel
 import pl.edu.uj.ii.szlosek.shop.builds.getCarts
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
-import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealm
 
 class CartRealmFunc {
 

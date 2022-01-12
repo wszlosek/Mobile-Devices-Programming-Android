@@ -3,10 +3,8 @@ package pl.edu.uj.ii.szlosek.shop.realmDB.models.Category
 import io.realm.Realm
 import io.realm.RealmModel
 import pl.edu.uj.ii.szlosek.shop.builds.getCategories
-import pl.edu.uj.ii.szlosek.shop.builds.getUsers
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
-import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealm
 
 class CategoryRealmFunc {
 

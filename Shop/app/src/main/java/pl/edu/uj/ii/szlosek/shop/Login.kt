@@ -3,24 +3,6 @@ package pl.edu.uj.ii.szlosek.shop
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import okhttp3.OkHttpClient
-import pl.edu.uj.ii.szlosek.shop.builds.*
-import pl.edu.uj.ii.szlosek.shop.models.Product
-import pl.edu.uj.ii.szlosek.shop.services.ProductService
-import retrofit2.Call
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.Callback
-import io.realm.Realm
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
-import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
-import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
-import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealmFunc
-import pl.edu.uj.ii.szlosek.shop.services.UserService
 
 class Login : AppCompatActivity() {
 

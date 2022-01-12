@@ -2,7 +2,6 @@ package pl.edu.uj.ii.szlosek.shop.realmDB.models.Colors
 
 import io.realm.Realm
 import io.realm.RealmModel
-import pl.edu.uj.ii.szlosek.shop.builds.getCategories
 import pl.edu.uj.ii.szlosek.shop.builds.getColors
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations

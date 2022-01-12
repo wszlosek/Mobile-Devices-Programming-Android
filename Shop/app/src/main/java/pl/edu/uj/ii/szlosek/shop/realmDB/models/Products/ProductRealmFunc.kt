@@ -3,10 +3,8 @@ package pl.edu.uj.ii.szlosek.shop.realmDB.models.Products
 import io.realm.Realm
 import io.realm.RealmModel
 import pl.edu.uj.ii.szlosek.shop.builds.getProducts
-import pl.edu.uj.ii.szlosek.shop.builds.getUsers
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
-import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealm
 
 class ProductRealmFunc {
     private val operations = RealmOperations()

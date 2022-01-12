@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ButtonLoginFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
