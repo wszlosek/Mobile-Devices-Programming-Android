@@ -13,4 +13,4 @@
 - [<h4>Kalkulator</h4>](https://github.com/wszlosek/UJ-Android/tree/main/Calculator)
 
 - [<h4>Sklep (back-end)</h4>](https://github.com/wszlosek/UJ-Android/tree/main/ShopRestAPI)
-- - [<h4>Sklep (po stronie klienta: Android Studio)</h4>](https://github.com/wszlosek/UJ-Android/tree/main/Shop)
+- [<h4>Sklep (po stronie klienta: Android Studio)</h4>](https://github.com/wszlosek/UJ-Android/tree/main/Shop)
