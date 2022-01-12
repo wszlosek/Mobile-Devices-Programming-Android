@@ -12,16 +12,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import pl.edu.uj.ii.szlosek.shop.builds.getProducts
+import pl.edu.uj.ii.szlosek.shop.models.Product
 
 class Adapter(context: Context): BaseAdapter() {
-    private val mContext: Context
-    private val productsNames = arrayListOf<String>(
-        "Product 1", "Product 2", "Product 3",
-        "Product 4", "Product 5"
-    )
+    private val mContext: Context = context
+    var x = getProductsToList()
+    private val productsNames = generateProducts()
 
-    init {
-        mContext = context
+    private fun generateProducts(): ArrayList<Product> {
+        val result: ArrayList<Product> = mutableListOf<Product>() as ArrayList<Product>
+        for (i in x.indices) {
+            result.add(x[i])
+        }
+
+        return result
     }
 
     override fun getCount(): Int {
@@ -44,7 +52,7 @@ class Adapter(context: Context): BaseAdapter() {
         )
 
         val nameTextView = rowProducts.findViewById<TextView>(R.id.productName)
-        nameTextView.text = productsNames.get(p0)
+        nameTextView.text = productsNames[p0].toString()
 
         val buttons = rowProducts.findViewById<Button>(R.id.buyButton)
         buttons.setOnClickListener {
@@ -57,5 +65,14 @@ class Adapter(context: Context): BaseAdapter() {
         return rowProducts
     }
 
+    private fun getProductsToList(): List<Product> {
+        val x: List<Product>
+        runBlocking {
+            withContext(Dispatchers.IO) {
+                x = getProducts()
+            }
+        }
+        return x
+    }
 
 }
