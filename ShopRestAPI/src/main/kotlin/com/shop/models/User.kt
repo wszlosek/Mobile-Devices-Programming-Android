@@ -10,6 +10,9 @@ data class User(
     constructor() : this(0, "", "", "", "")
 }
 
+const val userSign = "/user"
+const val userIdSign = "/user/{id}"
+
 fun ResultRow.toUser() = User(
     id = this[UserTable.id],
     firstName = this[UserTable.firstName],

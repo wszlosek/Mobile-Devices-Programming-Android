@@ -7,9 +7,7 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import com.shop.tables.ShopLocalizationTable
-import com.shop.tables.UserTable
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.shopLocalizationSerialization() {
@@ -21,7 +19,7 @@ fun Application.shopLocalizationSerialization() {
 
 private fun Application.getShopLocalization() {
     routing {
-        get("/shop") {
+        get(shopSign) {
             var localizations = mutableListOf<ShopLocalization>()
             transaction {
                 localizations = ShopLocalizationTable.selectAll().map { it.toShopLocalization() }.toMutableList()
@@ -29,7 +27,7 @@ private fun Application.getShopLocalization() {
             call.respond(localizations)
         }
 
-        get("/shop/{id}") {
+        get(shopIdSign) {
             val id: Int = call.parameters["id"]!!.toInt()
             var localization = ShopLocalization()
             transaction {
@@ -42,7 +40,7 @@ private fun Application.getShopLocalization() {
 
 private fun Application.postShopLocalization() {
     routing {
-        post("/shop") {
+        post(shopSign) {
             val shop = call.receive<ShopLocalization>()
             addLocalizationToDatabase(shop)
             call.respondText("Shop localization stored correctly", status = HttpStatusCode.Created)
@@ -52,7 +50,7 @@ private fun Application.postShopLocalization() {
 
 private fun Application.putShopLocalization() {
     routing {
-        put("/shop/{id}") {
+        put(shopIdSign) {
             val id = call.parameters["id"]
             val shop = call.receive<ShopLocalization>()
             transaction {
@@ -71,14 +69,14 @@ private fun Application.putShopLocalization() {
 
 private fun Application.deleteShopLocalization() {
     routing {
-        delete("/shop") {
+        delete(shopSign) {
             transaction {
                 SchemaUtils.drop(ShopLocalizationTable)
                 SchemaUtils.create(ShopLocalizationTable)
             }
         }
 
-        delete("/shop/{id}") {
+        delete(shopIdSign) {
             val id = call.parameters["id"]
             transaction {
                 ShopLocalizationTable.deleteWhere { ShopLocalizationTable.id eq id!!.toInt() }

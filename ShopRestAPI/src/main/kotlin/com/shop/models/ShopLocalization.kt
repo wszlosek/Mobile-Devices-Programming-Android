@@ -10,6 +10,9 @@ data class ShopLocalization(
     constructor() : this(0, "", "", "", "")
 }
 
+const val shopSign = "/shop"
+const val shopIdSign = "/shop/{id}"
+
 fun ResultRow.toShopLocalization() = ShopLocalization(
     id = this[ShopLocalizationTable.id],
     name = this[ShopLocalizationTable.name],

@@ -19,7 +19,7 @@ fun Application.colorSerialization() {
 
 private fun Application.getColor() {
     routing {
-        get("/color") {
+        get(colorSign) {
             var colors = mutableListOf<Color>()
             transaction {
                 colors = ColorTable.selectAll().map { it.toColor() }.toMutableList()
@@ -27,7 +27,7 @@ private fun Application.getColor() {
             call.respond(colors)
         }
 
-        get("/color/{id}") {
+        get(colorIdSign) {
             val id: Int = call.parameters["id"]!!.toInt()
             var color = Color()
             transaction {
@@ -40,7 +40,7 @@ private fun Application.getColor() {
 
 private fun Application.postColor() {
     routing {
-        post("/color") {
+        post(colorSign) {
             val color = call.receive<Color>()
             addColorToDatabase(color)
             call.respondText("Color stored correctly", status = HttpStatusCode.Created)
@@ -50,7 +50,7 @@ private fun Application.postColor() {
 
 private fun Application.putColor() {
     routing {
-        put("/color/{id}") {
+        put(colorIdSign) {
             val id = call.parameters["id"]
             val color = call.receive<Color>()
             transaction {
@@ -66,14 +66,14 @@ private fun Application.putColor() {
 
 private fun Application.deleteColor() {
     routing {
-        delete("/color") {
+        delete(colorSign) {
             transaction {
                 SchemaUtils.drop(ColorTable)
                 SchemaUtils.create(ColorTable)
             }
         }
 
-        delete("/color/{id}") {
+        delete(colorIdSign) {
             val id = call.parameters["id"]
             transaction {
                 ColorTable.deleteWhere { ColorTable.id eq id!!.toInt() }

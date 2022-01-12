@@ -7,6 +7,9 @@ data class Cart(val id: Int, val userId: Int, val productId: Int, val amount: In
     constructor() : this(0, 0, 0, 0)
 }
 
+const val cartSign = "/cart"
+const val cartIdSign = "/cart/{id}"
+
 fun ResultRow.toCart() = Cart(
     id = this[CartTable.id],
     userId = this[CartTable.userId],

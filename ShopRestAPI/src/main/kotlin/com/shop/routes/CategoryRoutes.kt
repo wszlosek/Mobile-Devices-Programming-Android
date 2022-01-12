@@ -1,16 +1,13 @@
 package com.shop.routes
 
-import com.shop.models.Category
-import com.shop.models.toCategory
+import com.shop.models.*
 import com.shop.tables.CategoryTable
-import com.shop.tables.ColorTable
 import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.categorySerialization() {
@@ -22,7 +19,7 @@ fun Application.categorySerialization() {
 
 private fun Application.getCategory() {
     routing {
-        get("/category") {
+        get(categorySign) {
             var categories = mutableListOf<Category>()
             transaction {
                 categories = CategoryTable.selectAll().map { it.toCategory() }.toMutableList()
@@ -30,7 +27,7 @@ private fun Application.getCategory() {
             call.respond(categories)
         }
 
-        get("/category/{id}") {
+        get(categoryIdSign) {
             val id: Int = call.parameters["id"]!!.toInt()
             var category = Category()
             transaction {
@@ -43,7 +40,7 @@ private fun Application.getCategory() {
 
 private fun Application.postCategory() {
     routing {
-        post("/category") {
+        post(categorySign) {
             val category = call.receive<Category>()
             addCategoryToDatabase(category)
             call.respondText("Category stored correctly", status = HttpStatusCode.Created)
@@ -53,7 +50,7 @@ private fun Application.postCategory() {
 
 private fun Application.putCategory() {
     routing {
-        put("/category/{id}") {
+        put(categoryIdSign) {
             val id = call.parameters["id"]
             val category = call.receive<Category>()
             transaction {
@@ -69,14 +66,14 @@ private fun Application.putCategory() {
 
 private fun Application.deleteCategory() {
     routing {
-        delete("/category") {
+        delete(categorySign) {
             transaction {
                 SchemaUtils.drop(CategoryTable)
                 SchemaUtils.create(CategoryTable)
             }
         }
 
-        delete("/category/{id}") {
+        delete(categoryIdSign) {
             val id = call.parameters["id"]
             transaction {
                 CategoryTable.deleteWhere { CategoryTable.id eq id!!.toInt() }

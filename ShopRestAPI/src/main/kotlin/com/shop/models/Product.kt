@@ -10,6 +10,9 @@ data class Product(
     constructor() : this(0, "", 0, "", 0, 0.0F, "")
 }
 
+const val productSign = "/product"
+const val productIdSign = "/product/{id}"
+
 fun ResultRow.toProduct() = Product(
     id = this[ProductTable.id],
     name = this[ProductTable.name],

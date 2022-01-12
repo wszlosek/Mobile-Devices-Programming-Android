@@ -7,6 +7,9 @@ data class Category(val id: Int, val name: String) {
     constructor() : this(0, "")
 }
 
+const val categorySign = "/category"
+const val categoryIdSign = "/category/{id}"
+
 fun ResultRow.toCategory() = Category(
     id = this[CategoryTable.id],
     name = this[CategoryTable.name]

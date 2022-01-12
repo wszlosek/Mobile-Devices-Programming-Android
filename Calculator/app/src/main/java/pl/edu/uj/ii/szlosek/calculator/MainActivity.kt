@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private var textField = TextField()
     private lateinit var assignment: HashMap<View, String>
     private lateinit var currentTextbox: TextView
+    private val errorSign = "#ERROR"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,7 +134,7 @@ class MainActivity : AppCompatActivity() {
             textSynchronization()
 
         } catch (e: KevalZeroDivisionException) {
-            currentTextbox.text = "#ERROR"
+            currentTextbox.text = errorSign
             Toast.makeText(
                 this@MainActivity,
                 "You can't divide by zero!",
@@ -142,7 +143,7 @@ class MainActivity : AppCompatActivity() {
             clearTextField()
 
         } catch (e: KevalInvalidExpressionException) {
-            currentTextbox.text = "#ERROR"
+            currentTextbox.text = errorSign
             Toast.makeText(
                 this@MainActivity,
                 "Expression is invalid",
@@ -151,7 +152,7 @@ class MainActivity : AppCompatActivity() {
             clearTextField()
 
         } catch (e: KevalInvalidSymbolException) {
-            currentTextbox.text = "#ERROR"
+            currentTextbox.text = errorSign
             Toast.makeText(
                 this@MainActivity,
                 "Expression contains an invalid symbol",

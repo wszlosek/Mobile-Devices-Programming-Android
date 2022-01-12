@@ -19,7 +19,7 @@ fun Application.cartSerialization() {
 
 private fun Application.getCart() {
     routing {
-        get("/cart") {
+        get(cartSign) {
             var carts = mutableListOf<Cart>()
             transaction {
                 carts = CartTable.selectAll().map { it.toCart() }.toMutableList()
@@ -27,7 +27,7 @@ private fun Application.getCart() {
             call.respond(carts)
         }
 
-        get("/cart/{id}") {
+        get(cartIdSign) {
             val id: Int = call.parameters["id"]!!.toInt()
             var cart = Cart()
             transaction {
@@ -40,7 +40,7 @@ private fun Application.getCart() {
 
 private fun Application.postCart() {
     routing {
-        post("/cart") {
+        post(cartSign) {
             val color = call.receive<Cart>()
             addCartToDatabase(color)
             call.respondText("Color stored correctly", status = HttpStatusCode.Created)
@@ -50,7 +50,7 @@ private fun Application.postCart() {
 
 private fun Application.putCart() {
     routing {
-        put("/cart/{id}") {
+        put(cartIdSign) {
             val id = call.parameters["id"]
             val cart = call.receive<Cart>()
             transaction {
@@ -69,14 +69,14 @@ private fun Application.putCart() {
 
 private fun Application.deleteCart() {
     routing {
-        delete("/cart") {
+        delete(cartSign) {
             transaction {
                 SchemaUtils.drop(CartTable)
                 SchemaUtils.create(CartTable)
             }
         }
 
-        delete("/cart/{id}") {
+        delete(cartIdSign) {
             val id = call.parameters["id"]
             transaction {
                 CartTable.deleteWhere { CartTable.id eq id!!.toInt() }

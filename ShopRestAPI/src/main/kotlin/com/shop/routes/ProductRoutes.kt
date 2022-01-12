@@ -6,11 +6,11 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import com.shop.models.Product
+import com.shop.models.productIdSign
+import com.shop.models.productSign
 import com.shop.models.toProduct
 import com.shop.tables.ProductTable
-import com.shop.tables.ShopLocalizationTable
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.productSerialization() {
@@ -22,7 +22,7 @@ fun Application.productSerialization() {
 
 private fun Application.getProduct() {
     routing {
-        get("/product") {
+        get(productSign) {
             var products = mutableListOf<Product>()
             transaction {
                 products = ProductTable.selectAll().map { it.toProduct() }.toMutableList()
@@ -30,7 +30,7 @@ private fun Application.getProduct() {
             call.respond(products)
         }
 
-        get("/product/{id}") {
+        get(productIdSign) {
             val id: Int = call.parameters["id"]!!.toInt()
             var product = Product()
             transaction {
@@ -43,7 +43,7 @@ private fun Application.getProduct() {
 
 private fun Application.postProduct() {
     routing {
-        post("/product") {
+        post(productSign) {
             val product = call.receive<Product>()
             addProductToDatabase(product)
             call.respondText("Product stored correctly", status = HttpStatusCode.Created)
@@ -53,7 +53,7 @@ private fun Application.postProduct() {
 
 private fun Application.putProduct() {
     routing {
-        put("/product/{id}") {
+        put(productIdSign) {
             val id = call.parameters["id"]
             val product = call.receive<Product>()
             transaction {
@@ -74,7 +74,7 @@ private fun Application.putProduct() {
 
 private fun Application.deleteProduct() {
     routing {
-        delete("/product") {
+        delete(productSign) {
             transaction {
                 SchemaUtils.drop(ProductTable)
                 SchemaUtils.create(ProductTable)

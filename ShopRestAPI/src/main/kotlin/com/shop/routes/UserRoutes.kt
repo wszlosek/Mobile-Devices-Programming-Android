@@ -19,7 +19,7 @@ fun Application.userSerialization() {
 
 private fun Application.getUser() {
     routing {
-        get("/user") {
+        get(userSign) {
             var users = mutableListOf<User>()
             transaction {
                 users = UserTable.selectAll().map { it.toUser() }.toMutableList()
@@ -27,7 +27,7 @@ private fun Application.getUser() {
             call.respond(users)
         }
 
-        get("/user/{id}") {
+        get(userIdSign) {
             val id: Int = call.parameters["id"]!!.toInt()
             var user = User()
             transaction {
@@ -40,7 +40,7 @@ private fun Application.getUser() {
 
 private fun Application.postUser() {
     routing {
-        post("/user") {
+        post(userSign) {
             val user = call.receive<User>()
             addUserToDatabase(user)
             call.respondText("User stored correctly", status = HttpStatusCode.Created)
@@ -50,7 +50,7 @@ private fun Application.postUser() {
 
 private fun Application.putUser() {
     routing {
-        put("/user/{id}") {
+        put(userIdSign) {
             val id = call.parameters["id"]
             val user = call.receive<User>()
             transaction {
@@ -69,14 +69,14 @@ private fun Application.putUser() {
 
 private fun Application.deleteUser() {
     routing {
-        delete("/user") {
+        delete(userSign) {
             transaction {
                 SchemaUtils.drop(UserTable)
                 SchemaUtils.create(UserTable)
             }
         }
 
-        delete("/user/{id}") {
+        delete(userIdSign) {
             val id = call.parameters["id"]
             transaction {
                 UserTable.deleteWhere { UserTable.id eq id!!.toInt() }
