@@ -1,11 +1,6 @@
 package pl.edu.uj.ii.szlosek.shop.builds
 
-import android.util.Log
 import pl.edu.uj.ii.szlosek.shop.models.ShopLocalization
-import pl.edu.uj.ii.szlosek.shop.models.User
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /*
 fun getShops() {

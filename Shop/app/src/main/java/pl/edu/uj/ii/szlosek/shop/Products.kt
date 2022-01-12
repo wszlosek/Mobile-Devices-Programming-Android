@@ -15,7 +15,6 @@ class Products : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.productsList)
         listView.adapter = Adapter(this)
-
     }
 
     fun fromProductsToAboutMe(view: android.view.View) {

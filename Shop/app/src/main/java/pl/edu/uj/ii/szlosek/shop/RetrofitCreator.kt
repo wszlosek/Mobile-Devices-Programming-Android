@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitCreator {
     private fun buildService(classToCreate: Class<*>): Any? {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://4e6c-2a02-a31a-e045-8500-b122-760d-77b8-5c24.ngrok.io/")
+            .baseUrl("https://5697-2a02-a31a-e045-8500-38-c9a1-e191-9267.ngrok.io/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient.Builder().build())
             .build()

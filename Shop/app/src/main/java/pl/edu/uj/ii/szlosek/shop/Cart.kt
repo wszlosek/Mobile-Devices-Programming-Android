@@ -2,7 +2,6 @@ package pl.edu.uj.ii.szlosek.shop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 
 class Cart : AppCompatActivity() {
@@ -11,6 +10,6 @@ class Cart : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
 
         val selectedProductName = findViewById<TextView>(R.id.selectedProductName)
-        selectedProductName.text = intent.getStringExtra("nameOfProduct")
+        selectedProductName.text = intent.getStringExtra("nameOfProduct")?.replace(",", "")
     }
 }

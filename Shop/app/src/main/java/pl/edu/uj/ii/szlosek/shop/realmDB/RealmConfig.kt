@@ -1,6 +1,5 @@
 package pl.edu.uj.ii.szlosek.shop.realmDB
 
-import io.realm.Realm
 import io.realm.RealmConfiguration
 
 object RealmConfig {
@@ -8,6 +7,7 @@ object RealmConfig {
 
     fun providesRealmConfig(): RealmConfiguration =
         RealmConfiguration.Builder()
+            .name("ShopRealm.realm")
             .schemaVersion(realmVersion)
             .build()
 }

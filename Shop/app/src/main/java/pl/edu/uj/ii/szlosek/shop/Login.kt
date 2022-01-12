@@ -18,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
+import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealmFunc
 import pl.edu.uj.ii.szlosek.shop.services.UserService
 
@@ -27,7 +28,7 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        RetrofitCreator().buildAllServices()
+    //    RetrofitCreator().buildAllServices()
 
       //  val product = Product(6, "Bluza bez kaptura", 1, "M", 13, 29.99F, "Męska bluza z kapturem.")
        // addProduct(product)
@@ -38,16 +39,15 @@ class Login : AppCompatActivity() {
      //   var x = getProduct(2)
      //   println(x.description + " haha")
 
+/*
+        Realm.init(this)
+        RealmConfig.providesRealmConfig()
         runBlocking {
             withContext(Dispatchers.IO) {
-                var x = getCarts()
-                println(x)
+                var x = RealmOperations()
+                x.synchronizeAllModels()
             }
-        }
-
-        /*
-        Realm.init(this)
-        RealmConfig.providesRealmConfig() */
+        } */
     }
 
     fun fromLoginToRegister(view: android.view.View) {
