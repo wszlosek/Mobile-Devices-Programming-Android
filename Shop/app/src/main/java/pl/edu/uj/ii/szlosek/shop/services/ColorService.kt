@@ -1,7 +1,6 @@
 package pl.edu.uj.ii.szlosek.shop.services
 
 import pl.edu.uj.ii.szlosek.shop.models.Color
-import retrofit2.Call
 import retrofit2.http.*
 
 interface ColorService {

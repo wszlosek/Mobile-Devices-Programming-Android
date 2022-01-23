@@ -6,6 +6,7 @@ import io.realm.kotlin.deleteFromRealm
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.Cart.CartRealmFunc
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.Category.CategoryRealmFunc
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.Colors.ColorRealmFunc
+import pl.edu.uj.ii.szlosek.shop.realmDB.models.LoginData.LoginDataRealmFunc
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.Products.ProductRealmFunc
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.ShopLocalization.ShopLocalizationRealmFunc
 import pl.edu.uj.ii.szlosek.shop.realmDB.models.User.UserRealmFunc
@@ -49,6 +50,7 @@ class RealmOperations {
         val colors = ColorRealmFunc()
         val products = ProductRealmFunc()
         val shops = ShopLocalizationRealmFunc()
+        val loginData = LoginDataRealmFunc()
 
         user.usersSynchronization()
         cart.cartsSynchronization()
@@ -56,5 +58,6 @@ class RealmOperations {
         colors.colorsSynchronization()
         shops.shopsSynchronization()
         products.productsSynchronization()
+        loginData.loginDataSynchronization()
     }
 }
