@@ -17,4 +17,6 @@ fun Application.configureSerialization() {
     cartSerialization()
     categorySerialization()
     loginDataSerialization()
+
+    orderSerialization()
 }

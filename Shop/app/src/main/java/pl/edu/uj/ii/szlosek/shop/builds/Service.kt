@@ -9,3 +9,4 @@ lateinit var colorService: ColorService
 lateinit var shopLocalizationService: ShopLocalizationService
 lateinit var userService: UserService
 lateinit var loginDataService: LoginDataService
+lateinit var stripeService: Stripe

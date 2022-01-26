@@ -21,17 +21,21 @@
         app:layout_constraintVertical_bias="1.0"
         android:contentDescription="@string/logo"/>
 
-    <fragment
-        android:id="@+id/login"
+    <EditText
+        android:id="@+id/loginInRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463"
-        android:name="pl.edu.uj.ii.szlosek.shop.fragments.LoginEditTextFragment" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/login"
+        android:importantForAutofill="no"  />
 
     <fragment
         android:id="@+id/emailAddress"
@@ -46,43 +50,50 @@
         app:layout_constraintVertical_bias="0.463"
         android:name="pl.edu.uj.ii.szlosek.shop.fragments.EmailEditTextFragment" />
 
-    <fragment
-        android:id="@+id/password"
+    <EditText
+        android:id="@+id/passwordInRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="-220dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463"
-        android:name="pl.edu.uj.ii.szlosek.shop.fragments.PasswordEditTextFragment" />
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:importantForAutofill="no" />
 
-    <fragment
-        android:id="@+id/repeatPassword"
+    <EditText
+        android:id="@+id/repeatPasswordInRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="330dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="-355dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463"
-        android:name="pl.edu.uj.ii.szlosek.shop.fragments.RepeatPasswordEditTextFragment" />
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/repeat_password"
+        android:importantForAutofill="no" />
 
-    <fragment
-        android:id="@+id/buttonRegister"
+    <Button
+        android:id="@+id/buttonRegisterInRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="-470dp"
+        android:layout_marginBottom="-500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:name="pl.edu.uj.ii.szlosek.shop.fragments.ButtonRegisterToLoginFragment" />
+        android:onClick="fromRegisterToLogin"
+        android:text="@string/register" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

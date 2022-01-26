@@ -25,5 +25,7 @@
     <string name="selected_product">Selected product:</string>
     <string name="buy">Buy</string>
     <string name="log_in_with_github">Log in with GitHub</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="where_are_we">Where are we?</string>
 
 </resources>

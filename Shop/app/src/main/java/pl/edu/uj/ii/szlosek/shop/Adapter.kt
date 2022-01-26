@@ -41,6 +41,7 @@ class Adapter(context: Context): BaseAdapter() {
 
     @SuppressLint("ViewHolder")
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
+        ProductId.id = p0
         val layoutInflater = LayoutInflater.from(mContext)
         val rowProducts = layoutInflater.inflate(
             R.layout.row_products, p2, false
@@ -52,7 +53,7 @@ class Adapter(context: Context): BaseAdapter() {
         val buttons = rowProducts.findViewById<Button>(R.id.buyButton)
         buttons.setOnClickListener {
             val intent = Intent(mContext, Cart::class.java).apply {
-                putExtra("nameOfProduct",nameTextView.text)
+                putExtra("nameOfProduct", nameTextView.text)
             }
             mContext.startActivity(intent)
         }

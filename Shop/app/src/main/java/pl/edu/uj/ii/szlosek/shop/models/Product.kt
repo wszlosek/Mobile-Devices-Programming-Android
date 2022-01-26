@@ -5,4 +5,8 @@ data class Product(
     val colorId: Int, val price: Float, val description: String
 ) {
     constructor() : this(0, "", 0, "", 0, 0.0F, "")
+
+    fun id(): Int {
+        return id
+    }
 }

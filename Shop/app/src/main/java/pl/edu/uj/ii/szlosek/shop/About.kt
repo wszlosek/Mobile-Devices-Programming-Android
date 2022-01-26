@@ -14,4 +14,9 @@ class About : AppCompatActivity() {
         val intent = Intent(this, Products::class.java)
         startActivity(intent)
     }
+
+    fun fromAboutToMaps(view: android.view.View) {
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
+    }
 }

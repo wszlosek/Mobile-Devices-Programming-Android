@@ -1,39 +1,27 @@
 package pl.edu.uj.ii.szlosek.shop
 
-import android.R.attr
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.FrameLayout
 import android.widget.Toast
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import io.realm.Realm
 import pl.edu.uj.ii.szlosek.shop.builds.getLoginData
 import pl.edu.uj.ii.szlosek.shop.builds.getProducts
 import pl.edu.uj.ii.szlosek.shop.models.LoginData
-import pl.edu.uj.ii.szlosek.shop.models.Product
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmConfig
 import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
-import androidx.core.app.ActivityCompat.startActivityForResult
-import android.R.attr.data
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Dialog
-import android.content.ContentValues.TAG
-import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.util.Log
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.tasks.Task
-import com.google.android.gms.common.api.ApiException
+import com.stripe.android.PaymentConfiguration
 import kotlinx.coroutines.*
 import org.json.JSONObject
 import org.json.JSONTokener
@@ -41,11 +29,6 @@ import java.io.OutputStreamWriter
 import java.net.URL
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.HttpsURLConnection
-import java.io.File
-import java.net.CookieManager
-import java.util.Calendar.getInstance
-import java.util.Currency.getInstance
-import java.util.ResourceBundle.clearCache
 
 class Login : AppCompatActivity() {
 
@@ -55,7 +38,14 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-     //   File(this.cacheDir.path).deleteRecursively()
+
+
+        PaymentConfiguration.init(
+            applicationContext,
+            Secrets.secretKeyClient
+        )
+
+
         RetrofitCreator().buildAllServices()
 
       //  val product = Product(9, "Bluza bez kaptura", 1, "M", 13, 29.99F, "Męska bluza z kapturem.")
@@ -99,7 +89,7 @@ class Login : AppCompatActivity() {
         webView.clearHistory();
         webView.clearFormData();
         webView.clearCache(true);
-        android.webkit.CookieManager.getInstance().removeAllCookie();
+        android.webkit.CookieManager.getInstance().removeAllCookie()
 
         webView.isVerticalScrollBarEnabled = false
         webView.isHorizontalScrollBarEnabled = false
@@ -116,8 +106,8 @@ class Login : AppCompatActivity() {
     }
 
     fun fromLogToProducts(view: android.view.View) {
-        val login = findViewById<EditText>(R.id.login) as EditText
-        val password = findViewById<EditText>(R.id.password) as EditText
+        val login = findViewById<EditText>(R.id.login)
+        val password = findViewById<EditText>(R.id.password)
         var loginData = emptyList<LoginData>()
 
         runBlocking {
@@ -130,8 +120,9 @@ class Login : AppCompatActivity() {
             if (it.login == login.text.toString() && it.password == password.text.toString()) {
                 val intent = Intent(this, Products::class.java)
                 startActivity(intent)
+                UserId.id = it.id
             } else {
-                println("NIE DLA PSA!!!")
+                // Toast.makeText(this, "Invalid username or password!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -178,7 +169,7 @@ class Login : AppCompatActivity() {
             }
         }
 
-        fun requestForAccessToken(code: String) {
+        private fun requestForAccessToken(code: String) {
             val grantType = "authorization_code"
 
             val postParams =
@@ -212,7 +203,7 @@ class Login : AppCompatActivity() {
             }
         }
 
-        fun fetchGithubUserProfile(token: String) {
+        private fun fetchGithubUserProfile(token: String) {
             GlobalScope.launch(Dispatchers.Default) {
                 val tokenURLFull =
                     "https://api.github.com/user"

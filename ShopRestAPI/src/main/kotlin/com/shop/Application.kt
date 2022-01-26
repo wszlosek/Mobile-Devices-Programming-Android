@@ -14,6 +14,7 @@ fun main() {
     Database.connect("jdbc:sqlite:shopdb.sqlite", "org.sqlite.JDBC")
     TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
 
+
     transaction {
         SchemaUtils.create(ProductTable)
         SchemaUtils.create(UserTable)

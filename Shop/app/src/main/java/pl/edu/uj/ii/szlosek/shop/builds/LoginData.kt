@@ -11,7 +11,7 @@ suspend fun getLoginData(id: Int): LoginData {
     return loginDataService.getLoginData(id)
 }
 
-suspend fun createColor(loginData: LoginData) {
+suspend fun createLoginData(loginData: LoginData) {
     return loginDataService.createLoginData(loginData)
 }
 
