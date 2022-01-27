@@ -37,7 +37,6 @@ private fun Application.getOrder() {
                         }
                     }
 
-                    println("mmm " + sProduct.price.toString())
                     val price: Float = sProduct.price
                     Stripe.apiKey = Secrets.secretServerKey
 

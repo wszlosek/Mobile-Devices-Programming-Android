@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9faccf1-fa95-44d3-8f98-175e528c1767" name="Changes" comment="Remove unused variables, imports and duplicates">
+    <list default="true" id="d9faccf1-fa95-44d3-8f98-175e528c1767" name="Changes" comment="Add Google Maps, OAuth and Stripe">
       <change afterPath="$PROJECT_DIR$/../Shop/app/src/debug/res/values/google_maps_api.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/GithubConstants.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/MapsActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/ProductId.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/UserId.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/services/Stripe.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/RegisterFragment.kt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_maps.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_register.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/navigation/login_nav_graph.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Shop/app/src/release/res/values/google_maps_api.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/models/Secrets.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/routes/OrderAndStripeRoutes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/AndroidManifest.xml" afterDir="false" />
@@ -23,79 +21,81 @@
       <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Adapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Adapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Cart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Cart.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Products.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Products.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Register.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/Register.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/RetrofitCreator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/RetrofitCreator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/builds/LoginData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/builds/LoginData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/builds/Service.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/builds/Service.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/Product.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/models/Product.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_about.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_about.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_cart.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/AboutMeTextFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/AboutMeTitleFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ButtonAboutMeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/LoginFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ButtonBackFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ProductsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ButtonBuyFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/CartFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ButtonLoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/AboutFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ButtonRegisterFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ButtonRegisterToLoginFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/CartTitleFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/EmailEditTextFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/LoginEditTextFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/PasswordEditTextFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/RepeatPasswordEditTextFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/java/pl/edu/uj/ii/szlosek/shop/fragments/ShopLogoFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_about_me_text.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_about.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_about_me_title.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_button_about_me.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_button_back.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_button_buy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_cart.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_button_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_button_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_products.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_button_register_to_login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_cart_title.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_email_edit_text.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_login_edit_text.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_password_edit_text.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_repeat_password_edit_text.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shop/app/src/main/res/layout/fragment_shop_logo.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Shop/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Shop/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/META-INF/ShopRestAPI.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/META-INF/ShopRestAPI.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt$main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/ApplicationKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/plugins/SerializationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/com/shop/plugins/SerializationKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/package-parts.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
@@ -103,9 +103,8 @@
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopdb.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/shopdb.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/plugins/Serialization.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/plugins/Serialization.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/shop/routes/OrderAndStripeRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/shop/routes/OrderAndStripeRoutes.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +189,8 @@
       <workItem from="1643048432005" duration="481000" />
       <workItem from="1643126392322" duration="1730000" />
       <workItem from="1643157122496" duration="2337000" />
-      <workItem from="1643201172325" duration="7489000" />
+      <workItem from="1643201172325" duration="8442000" />
+      <workItem from="1643243029489" duration="1712000" />
     </task>
     <task id="LOCAL-00001" summary="Remove unused variables, imports and duplicates">
       <created>1642014432881</created>
@@ -206,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642014633242</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Google Maps, OAuth and Stripe">
+      <created>1643215242074</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1643215242076</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +233,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Remove unused variables, imports and duplicates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unused variables, imports and duplicates" />
+    <MESSAGE value="Add Google Maps, OAuth and Stripe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Google Maps, OAuth and Stripe" />
   </component>
 </project>

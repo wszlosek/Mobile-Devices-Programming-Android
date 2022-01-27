@@ -22,7 +22,7 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
     }
 
-    fun fromRegisterToLogin(view: android.view.View) {
+   /* fun fromRegisterToLogin(view: android.view.View) {
 
         val newLogin = findViewById<EditText>(R.id.loginInRegister)
         val newPassword = findViewById<EditText>(R.id.passwordInRegister)
@@ -55,5 +55,5 @@ class Register : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Password and repeat password must be the same!", Toast.LENGTH_SHORT).show()
         }
-    }
+    } */
 }

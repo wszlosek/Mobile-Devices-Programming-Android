@@ -39,12 +39,10 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         PaymentConfiguration.init(
             applicationContext,
             Secrets.secretKeyClient
         )
-
 
         RetrofitCreator().buildAllServices()
 
@@ -69,182 +67,10 @@ class Login : AppCompatActivity() {
                 println(x2)
             }
         }
-
-        val state = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis())
-
-        githubAuthURLFull =
-            GithubConstants.AUTHURL + "?client_id=" + GithubConstants.CLIENT_ID + "&scope=" + GithubConstants.SCOPE + "&redirect_uri=" + GithubConstants.REDIRECT_URI + "&state=" + state
-
-        val github_login_btn = findViewById<Button>(R.id.github_login_btn)
-        github_login_btn.setOnClickListener {
-            setupGithubWebviewDialog(githubAuthURLFull)
-        }
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    fun setupGithubWebviewDialog(url: String) {
-        githubdialog = Dialog(this)
-        val webView = WebView(this)
-
-        webView.clearHistory();
-        webView.clearFormData();
-        webView.clearCache(true);
-        android.webkit.CookieManager.getInstance().removeAllCookie()
-
-        webView.isVerticalScrollBarEnabled = false
-        webView.isHorizontalScrollBarEnabled = false
-        webView.webViewClient = GithubWebViewClient()
-        webView.settings.javaScriptEnabled = true
-        webView.loadUrl(url)
-        githubdialog.setContentView(webView)
-        githubdialog.show()
-    }
-
-    fun fromLoginToRegister(view: android.view.View) {
-        val intent = Intent(this, Register::class.java)
-        startActivity(intent)
-    }
-
-    fun fromLogToProducts(view: android.view.View) {
-        val login = findViewById<EditText>(R.id.login)
-        val password = findViewById<EditText>(R.id.password)
-        var loginData = emptyList<LoginData>()
-
-        runBlocking {
-            withContext(Dispatchers.IO) {
-                loginData = getLoginData()
-            }
-        }
-
-        loginData.forEach {
-            if (it.login == login.text.toString() && it.password == password.text.toString()) {
-                val intent = Intent(this, Products::class.java)
-                startActivity(intent)
-                UserId.id = it.id
-            } else {
-                // Toast.makeText(this, "Invalid username or password!", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    @Suppress("OverridingDeprecatedMember")
-    inner class GithubWebViewClient : WebViewClient() {
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        override fun shouldOverrideUrlLoading(
-            view: WebView?,
-            request: WebResourceRequest?
-        ): Boolean {
-            if (request!!.url.toString().startsWith(GithubConstants.REDIRECT_URI)) {
-                handleUrl(request.url.toString())
-
-                // Close the dialog after getting the authorization code
-                if (request.url.toString().contains("code=")) {
-                    githubdialog.dismiss()
-                }
-                return true
-            }
-            return false
-        }
-
-        // For API 19 and below
-        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-            if (url.startsWith(GithubConstants.REDIRECT_URI)) {
-                handleUrl(url)
-
-                // Close the dialog after getting the authorization code
-                if (url.contains("?code=")) {
-                    githubdialog.dismiss()
-                }
-                return true
-            }
-            return false
-        }
-
-        // Check webview url for access token code or error
-        private fun handleUrl(url: String) {
-            val uri = Uri.parse(url)
-            if (url.contains("code")) {
-                val githubCode = uri.getQueryParameter("code") ?: ""
-                requestForAccessToken(githubCode)
-            }
-        }
-
-        private fun requestForAccessToken(code: String) {
-            val grantType = "authorization_code"
-
-            val postParams =
-                "grant_type=" + grantType + "&code=" + code + "&redirect_uri=" + GithubConstants.REDIRECT_URI + "&client_id=" + GithubConstants.CLIENT_ID + "&client_secret=" + GithubConstants.CLIENT_SECRET
-            GlobalScope.launch(Dispatchers.Default) {
-                val url = URL(GithubConstants.TOKENURL)
-                val httpsURLConnection =
-                    withContext(Dispatchers.IO) { url.openConnection() as HttpsURLConnection }
-                httpsURLConnection.requestMethod = "POST"
-                httpsURLConnection.setRequestProperty(
-                    "Accept",
-                    "application/json"
-                );
-                httpsURLConnection.doInput = true
-                httpsURLConnection.doOutput = true
-                val outputStreamWriter = OutputStreamWriter(httpsURLConnection.outputStream)
-                withContext(Dispatchers.IO) {
-                    outputStreamWriter.write(postParams)
-                    outputStreamWriter.flush()
-                }
-                val response = httpsURLConnection.inputStream.bufferedReader()
-                    .use { it.readText() }  // defaults to UTF-8
-                withContext(Dispatchers.Main) {
-                    val jsonObject = JSONTokener(response).nextValue() as JSONObject
-
-                    val accessToken = jsonObject.getString("access_token") //The access token
-
-                    // Get user's id, first name, last name, profile pic url
-                    fetchGithubUserProfile(accessToken)
-                }
-            }
-        }
-
-        private fun fetchGithubUserProfile(token: String) {
-            GlobalScope.launch(Dispatchers.Default) {
-                val tokenURLFull =
-                    "https://api.github.com/user"
-
-                val url = URL(tokenURLFull)
-                val httpsURLConnection =
-                    withContext(Dispatchers.IO) { url.openConnection() as HttpsURLConnection }
-                httpsURLConnection.requestMethod = "GET"
-                httpsURLConnection.setRequestProperty("Authorization", "Bearer $token")
-                httpsURLConnection.doInput = true
-                httpsURLConnection.doOutput = false
-                val response = httpsURLConnection.inputStream.bufferedReader()
-                    .use { it.readText() }  // defaults to UTF-8
-                val jsonObject = JSONTokener(response).nextValue() as JSONObject
-                Log.i("GitHub Access Token: ", token)
-
-                // GitHub Id
-                val githubId = jsonObject.getInt("id")
-                Log.i("GitHub Id: ", githubId.toString())
-
-                // GitHub Display Name
-                val githubDisplayName = jsonObject.getString("login")
-                Log.i("GitHub Display Name: ", githubDisplayName)
-
-                // GitHub Email
-                val githubEmail = jsonObject.getString("email")
-                Log.i("GitHub Email: ", githubEmail)
-
-                // GitHub Profile Avatar URL
-                val githubAvatarURL = jsonObject.getString("avatar_url")
-                Log.i("Github Profile Avatar URL: ", githubAvatarURL)
-                // https://johncodeos.com/how-to-add-github-login-button-to-your-android-app-using-kotlin/
-            }
-
-            goToProducts()
-        }
     }
 
     fun goToProducts() {
         val intent = Intent(this, Products::class.java)
         startActivity(intent)
     }
-
 }

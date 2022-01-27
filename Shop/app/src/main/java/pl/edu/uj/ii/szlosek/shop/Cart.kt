@@ -1,7 +1,5 @@
 package pl.edu.uj.ii.szlosek.shop
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,14 +9,10 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import com.stripe.android.PaymentConfiguration
 import com.stripe.android.paymentsheet.PaymentSheet
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import androidx.fragment.app.FragmentActivity
-import com.google.android.material.internal.ContextUtils.getActivity
-import com.stripe.android.payments.paymentlauncher.PaymentLauncher
 import com.stripe.android.paymentsheet.PaymentSheetResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
