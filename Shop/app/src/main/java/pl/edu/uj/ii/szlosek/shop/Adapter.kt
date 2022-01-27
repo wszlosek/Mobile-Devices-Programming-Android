@@ -42,8 +42,6 @@ class Adapter(context: Context): BaseAdapter() {
     @SuppressLint("ViewHolder")
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
 
-        val products = getProductsToList()
-        ProductId.id = products[p0].id
         val layoutInflater = LayoutInflater.from(mContext)
         val rowProducts = layoutInflater.inflate(
             R.layout.row_products, p2, false

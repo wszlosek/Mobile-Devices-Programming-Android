@@ -17,7 +17,8 @@ import com.stripe.android.paymentsheet.PaymentSheetResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-
+import pl.edu.uj.ii.szlosek.shop.builds.productService
+import pl.edu.uj.ii.szlosek.shop.models.Product
 
 class Cart : AppCompatActivity() {
 
@@ -38,6 +39,19 @@ class Cart : AppCompatActivity() {
 
         selectedProductName = findViewById<TextView>(R.id.selectedProductName)
         selectedProductName.text = intent.getStringExtra("nameOfProduct")?.replace(",", "")
+
+        val xd: List<Product>
+        runBlocking {
+            withContext(Dispatchers.IO) {
+                xd = productService.getProducts()
+            }
+        }
+
+        for (i in xd.indices) {
+            if (xd[i].toString().replace(",", "") == selectedProductName.text) {
+                ProductId.id = xd[i].id
+            }
+        }
 
         payButton = findViewById(R.id.buttonBuy)
         payButton.setOnClickListener(::onPayClicked)

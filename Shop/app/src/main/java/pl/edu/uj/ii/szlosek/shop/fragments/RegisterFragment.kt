@@ -1,15 +1,12 @@
 package pl.edu.uj.ii.szlosek.shop.fragments
 
-import android.content.Intent
 import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.navigation.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import pl.edu.uj.ii.szlosek.shop.Login
 import pl.edu.uj.ii.szlosek.shop.R
 import pl.edu.uj.ii.szlosek.shop.builds.createLoginData
 import pl.edu.uj.ii.szlosek.shop.builds.createUser

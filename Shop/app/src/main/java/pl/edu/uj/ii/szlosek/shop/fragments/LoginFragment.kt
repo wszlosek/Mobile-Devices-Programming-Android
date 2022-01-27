@@ -3,7 +3,6 @@ package pl.edu.uj.ii.szlosek.shop.fragments
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Dialog
-import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.util.Log
@@ -12,10 +11,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.*
 import org.json.JSONObject
 import org.json.JSONTokener
@@ -73,8 +70,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         githubAuthURLFull =
             GithubConstants.AUTHURL + "?client_id=" + GithubConstants.CLIENT_ID + "&scope=" + GithubConstants.SCOPE + "&redirect_uri=" + GithubConstants.REDIRECT_URI + "&state=" + state
 
-        val github_login_btn = view?.findViewById<Button>(R.id.github_login_btn)
-        github_login_btn?.setOnClickListener {
+        val githubLoginBtn = view?.findViewById<Button>(R.id.github_login_btn)
+        githubLoginBtn?.setOnClickListener {
             setupGithubWebviewDialog(githubAuthURLFull)
         }
     }
@@ -88,7 +85,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         webView.clearFormData();
         webView.clearCache(true);
         android.webkit.CookieManager.getInstance().removeAllCookie()
-
         webView.isVerticalScrollBarEnabled = false
         webView.isHorizontalScrollBarEnabled = false
         webView.webViewClient = GithubWebViewClient()
@@ -120,7 +116,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (url.startsWith(GithubConstants.REDIRECT_URI)) {
                 handleUrl(url)
 
-                // Close the dialog after getting the authorization code
                 if (url.contains("?code=")) {
                     githubdialog.dismiss()
                 }
@@ -129,7 +124,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             return false
         }
 
-        // Check webview url for access token code or error
         private fun handleUrl(url: String) {
             val uri = Uri.parse(url)
             if (url.contains("code")) {
@@ -166,7 +160,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                     val accessToken = jsonObject.getString("access_token") //The access token
 
-                    // Get user's id, first name, last name, profile pic url
                     fetchGithubUserProfile(accessToken)
                 }
             }
@@ -189,19 +182,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 val jsonObject = JSONTokener(response).nextValue() as JSONObject
                 Log.i("GitHub Access Token: ", token)
 
-                // GitHub Id
                 val githubId = jsonObject.getInt("id")
                 Log.i("GitHub Id: ", githubId.toString())
 
-                // GitHub Display Name
                 val githubDisplayName = jsonObject.getString("login")
                 Log.i("GitHub Display Name: ", githubDisplayName)
 
-                // GitHub Email
                 val githubEmail = jsonObject.getString("email")
                 Log.i("GitHub Email: ", githubEmail)
 
-                // GitHub Profile Avatar URL
                 val githubAvatarURL = jsonObject.getString("avatar_url")
                 Log.i("Github Profile Avatar URL: ", githubAvatarURL)
                 // https://johncodeos.com/how-to-add-github-login-button-to-your-android-app-using-kotlin/

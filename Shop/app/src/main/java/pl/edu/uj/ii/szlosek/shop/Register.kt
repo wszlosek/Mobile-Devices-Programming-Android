@@ -1,20 +1,7 @@
 package pl.edu.uj.ii.szlosek.shop
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.Toast
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
-import pl.edu.uj.ii.szlosek.shop.builds.createLoginData
-import pl.edu.uj.ii.szlosek.shop.builds.createUser
-import pl.edu.uj.ii.szlosek.shop.builds.getLoginData
-import pl.edu.uj.ii.szlosek.shop.builds.getProducts
-import pl.edu.uj.ii.szlosek.shop.models.LoginData
-import pl.edu.uj.ii.szlosek.shop.models.User
-import pl.edu.uj.ii.szlosek.shop.realmDB.RealmOperations
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
